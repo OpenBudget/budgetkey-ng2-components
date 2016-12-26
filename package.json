@@ -1,0 +1,42 @@
+{
+  "name": "budgetkey-ng2-components",
+  "version": "0.0.1",
+  "description": "Common Components for BudgetKey",
+  "main": "components.js",
+  "module": "components.js",
+  "typings": "components.d.ts",
+  "scripts": {
+    "watch": "tsc -p src -w",
+    "build": "rm -rf lib && tsc -p src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenBudget/budgetkey-ng2-components.git"
+  },
+  "keywords": [
+    "Angular",
+    "2",
+    "Library",
+    "Seed"
+  ],
+  "author": "adam.kariv@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OpenBudget/budgetkey-ng2-components/issues"
+  },
+  "homepage": "https://github.com/OpenBudget/budgetkey-ng2-components#readme",
+  "devDependencies": {
+    "typescript": "^2.0.10"
+  },
+  "dependencies": {
+    "@angular/common": "~2.2.0",
+    "@angular/compiler": "~2.2.0",
+    "@angular/core": "~2.2.0",
+    "@angular/forms": "~2.2.0",
+    "@angular/http": "~2.2.0",
+    "@angular/platform-browser": "~2.2.0",
+    "@angular/platform-browser-dynamic": "~2.2.0",
+    "rxjs": "^5.0.0-beta.12",
+    "zone.js": "^0.6.26"
+  }
+}
