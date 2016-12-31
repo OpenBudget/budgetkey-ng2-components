@@ -5,4 +5,4 @@ jspm_packages
 build
 
 src/*js
-
+*js.map

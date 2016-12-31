@@ -1,11 +1,12 @@
 {
   "name": "budgetkey-ng2-components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Common Components for BudgetKey",
   "main": "components.js",
   "module": "components.js",
   "typings": "components.d.ts",
   "scripts": {
+    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "watch": "tsc -p src -w",
     "build": "rm -rf lib && tsc -p src"
   },
@@ -26,7 +27,13 @@
   },
   "homepage": "https://github.com/OpenBudget/budgetkey-ng2-components#readme",
   "devDependencies": {
-    "typescript": "^2.0.10"
+    "concurrently": "^3.1.0",
+    "core-js": "^2.4.1",
+    "lite-server": "^2.2.2",
+    "typescript": "^2.0.10",
+    "systemjs": "0.19.40",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "^5.0.0-beta.12"
   },
   "dependencies": {
     "@angular/common": "~2.2.0",

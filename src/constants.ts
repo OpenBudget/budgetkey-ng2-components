@@ -1,0 +1,11 @@
+/**
+ * Created by adam on 31/12/2016.
+ */
+
+export let Layout = {
+  footerHeight: 80
+};
+
+export let Colors = {
+  text: '#3C4948'
+}
