@@ -10,6 +10,7 @@ import { Layout } from './constants';
             height: ${Layout.footerHeight}px;
             width: 100%;
             overflow:hidden;
+            background-color: #ffffff;
             
             border-top: 1px solid #e5e5e5;
             -webkit-box-shadow: inset 0 13px 15px -15px rgba(0, 0, 0, .74);

@@ -16,7 +16,7 @@ import { Layout } from './constants';
             height: 100%;
             display: block;
             margin: 0;
-            font-family: "Alef Hebrew", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: "Alef Hebrew", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
         }
        .app {
             direction: rtl;
