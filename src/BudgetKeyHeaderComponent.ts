@@ -1,11 +1,15 @@
 import {Component} from '@angular/core';
 
-import {Colors} from './constants'
+import {Colors, Layout} from './constants'
 
 @Component({
     selector: 'budgetkey-header',
     styles: [
-      `       
+      `      
+       header {
+           height: ${Layout.headerHeight}px;
+       }
+       
         .site-nav {
           width: 100%;
           right: 0;
@@ -22,7 +26,7 @@ import {Colors} from './constants'
           background: url(assets/img/obudget_key.png) no-repeat;
           background-size: 23px 52px;
           overflow: hidden;
-          height: 53px;
+          height: ${Layout.headerHeight-3}px;
           width: 141px;
         }
       
@@ -31,16 +35,9 @@ import {Colors} from './constants'
         }
       
         .navbar-left {
-          height: 54px;
+          height: ${Layout.headerHeight-2}px;
           overflow: hidden;
           margin-left: -10px;
-        }
-      
-        a.btn {
-          margin: 8px 10px;
-          padding: 6px 10px;
-          //color: #fff;
-          border-radius: 20px;
         }
       
         h3 {

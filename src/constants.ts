@@ -3,7 +3,8 @@
  */
 
 export let Layout = {
-  footerHeight: 80
+  footerHeight: 80,
+  headerHeight: 56
 };
 
 export let Colors = {

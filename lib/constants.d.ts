@@ -3,6 +3,7 @@
  */
 export declare let Layout: {
     footerHeight: number;
+    headerHeight: number;
 };
 export declare let Colors: {
     text: string;

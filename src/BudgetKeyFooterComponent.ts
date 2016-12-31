@@ -6,11 +6,8 @@ import { Layout } from './constants';
     selector: 'budgetkey-footer',
     styles: [`
         footer {
-            position: absolute;
-            left: 0;
-            bottom: 0;
             padding-top: 5px;
-            height: ${(Layout.footerHeight-5) + 'px'};
+            height: ${Layout.footerHeight}px;
             width: 100%;
             overflow:hidden;
             
@@ -27,15 +24,15 @@ import { Layout } from './constants';
             position: absolute;
             left: 0px;
             text-align: left;
-            height: 100%;
+            height: ${Layout.footerHeight}px;
         }
         
         .inner-text {
-            margin-top: 13px;
+            margin-top: 16px;
         }
     `],
     template: `
-        <footer>
+        <footer class="footer">
             <div class="inner-footer">
                 <div class="inner-text">
                     <div>מפתח התקציב</div>
