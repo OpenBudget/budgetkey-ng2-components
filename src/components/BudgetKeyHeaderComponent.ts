@@ -1,52 +1,7 @@
 import {Component} from '@angular/core';
 
-import {Colors, Layout} from './constants'
-
 @Component({
     selector: 'budgetkey-header',
-    styles: [
-      `      
-       header {
-           height: ${Layout.headerHeight}px;
-       }
-       
-        .site-nav {
-          width: 100%;
-          right: 0;
-          top: 0;
-          z-index: 1000000;
-        }
-
-        .navbar {
-          margin-bottom: 0;
-        }
-      
-        .navbar-brand {
-          color: ${Colors.text};
-          background: url(assets/img/obudget_key.png) no-repeat;
-          background-size: 23px 52px;
-          overflow: hidden;
-          height: ${Layout.headerHeight-3}px;
-          width: 141px;
-        }
-      
-        .navbar-nav > li > a {
-          color: #555;
-        }
-      
-        .navbar-left {
-          height: ${Layout.headerHeight-2}px;
-          overflow: hidden;
-          margin-left: -10px;
-        }
-      
-        h3 {
-          margin-top: 0;
-          margin-bottom: 0;
-          line-height: 40px;
-          padding-bottom: 19px;
-        }
-    `],
     template: `
           <header class="site-nav">
             <nav class="navbar navbar-default" role="navigation">

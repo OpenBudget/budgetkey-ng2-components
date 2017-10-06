@@ -1,24 +1,26 @@
 {
   "name": "budgetkey-ng2-components",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Common Components for BudgetKey",
-  "main": "components.js",
-  "module": "components.js",
-  "typings": "components.d.ts",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "start": "webpack-dev-server",
     "watch": "tsc -p src -w",
-    "build": "rm -rf lib && tsc -p src"
+    "build:styles": "lessc --clean-css --source-map ./src/styles/budgetkey-ng2-components.less ./lib/styles/budgetkey-ng2-components.css",
+    "build:scripts": "tsc -p src",
+    "prebuild": "rm -rf lib",
+    "build": "npm run build:scripts && npm run build:styles",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OpenBudget/budgetkey-ng2-components.git"
   },
   "keywords": [
-    "Angular",
-    "2",
-    "Library",
-    "Seed"
+    "Angular 2",
+    "OpenBudget"
   ],
   "author": "adam.kariv@gmail.com",
   "license": "MIT",
@@ -27,13 +29,18 @@
   },
   "homepage": "https://github.com/OpenBudget/budgetkey-ng2-components#readme",
   "devDependencies": {
-    "concurrently": "^3.1.0",
-    "core-js": "^2.4.1",
-    "lite-server": "^2.2.2",
+    "awesome-typescript-loader": "^3.2.3",
+    "extract-text-webpack-plugin": "^3.0.1",
+    "html-webpack-plugin": "^2.30.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "less-plugin-clean-css": "^1.5.1",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.19.0",
     "typescript": "^2.0.10",
-    "systemjs": "0.19.40",
-    "reflect-metadata": "^0.1.8",
-    "rxjs": "^5.0.0-beta.12"
+    "uglify-js-plugin": "0.0.6",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
   },
   "dependencies": {
     "@angular/common": "~2.2.0",
@@ -43,6 +50,10 @@
     "@angular/http": "~2.2.0",
     "@angular/platform-browser": "~2.2.0",
     "@angular/platform-browser-dynamic": "~2.2.0",
+    "bootstrap": "^3.3.7",
+    "bootstrap-rtl": "^3.3.4",
+    "core-js": "^2.5.1",
+    "reflect-metadata": "^0.1.10",
     "rxjs": "^5.0.0-beta.12",
     "zone.js": "^0.6.26"
   }

@@ -1,8 +1,6 @@
 npm-debug.log
 node_modules
-jspm_packages
 .idea
-build
+*.iml
 
-src/*js
-*js.map
+lib

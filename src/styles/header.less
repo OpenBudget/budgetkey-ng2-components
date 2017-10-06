@@ -1,0 +1,46 @@
+@import (less, reference) 'variables.less';
+
+header {
+  height: @headerHeight;
+
+  .site-nav {
+    width: 100%;
+    right: 0;
+    top: 0;
+    z-index: 1000000;
+  }
+
+  .navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+  }
+
+  .navbar-brand {
+    color: @textColor;
+    background: url(assets/img/obudget_key.png) no-repeat;
+    background-size: 23px 52px;
+    overflow: hidden;
+    height: calc(@headerHeight - 3px);
+    width: 141px;
+  }
+
+  .navbar-nav > li > a {
+    color: #555;
+  }
+
+  .navbar-left {
+    height: calc(@headerHeight - 2px);
+    overflow: hidden;
+    margin-left: -10px;
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+  }
+}
