@@ -1,0 +1,25 @@
+@import (less, reference) 'variables.less';
+
+html, body {
+  height: 100%;
+  display: block;
+  margin: 0;
+  font-family: "Alef Hebrew", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.app {
+  direction: rtl;
+  min-height: 100%;
+  margin-top: calc(0 - @headerHeight);
+  margin-bottom: calc(0 - @footerHeight - 6px);
+  padding-top: @headerHeight;
+  padding-bottom: @footerHeight;
+  width: 100%;
+
+  &:after {
+    content: "";
+    display: block;
+    height: @footerHeight;
+  }
+
+}

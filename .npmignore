@@ -1,8 +1,9 @@
-examples
+npm-debug.log
 node_modules
-src
-index.html
-app
-systemjs.config.js
-tsconfig.json
+.idea
+*.iml
+.travis.yml
 
+app
+package-lock.json
+webpack.config.js
