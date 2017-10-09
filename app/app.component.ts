@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
   `
 })
 export class AppComponent {
-  public greeting = 'זוהי אפליקציה לדוגמה של מפתח התקציב';
+  public greeting = 'זוהי אפליקציה לדוגמה של רכש פתוח';
 }

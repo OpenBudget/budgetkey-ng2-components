@@ -1,11 +1,11 @@
-# budgetkey-ng2-components
+# openprocurement-ng2-components
 
 This library contains a set of Angular 2 components and assets for building all
-OpenBudget applications with a common look and feel.
+Open Procurement applications with a common look and feel.
 
 ## Quickstart
 
-Install library with `npm install --save budgetkey-n2-components`.
+Install library with `npm install --save openprocurement-ng2-components`.
 
 TypeScript and Less sources are available in `src` folder, precompiled sources 
 and stylesheets are in `lib` folder. All necessary assets (images, fonts, etc.) 
@@ -26,7 +26,7 @@ need and do everything you want with it.
 
 In your application, import and provide library's module:
 ```javascript
-import { BudgetKeyCommonModule } from 'budgetkey-ng2-components';
+import { BudgetKeyCommonModule } from 'openprocurement-ng2-components';
 
 @NgModule({
   imports: [
@@ -68,14 +68,14 @@ Example:
 ## Development and contributing
 
 If you have an issue using this library and don't know how to solve it - 
-[let us know](https://github.com/OpenBudget/budgetkey-ng2-components/issues), 
+[let us know](https://github.com/OpenBudget/openprocurement-ng2-components/issues),
 and we will try to help you. 
 
 If you want to help us to improve the library, fix the bug or add new features - 
 you are welcome! To implement the conceived, follow this simple instruction:
 
-- clone repository with `git clone git@github.com:OpenBudget/budgetkey-ng2-components.git` or
-`git clone https://github.com/OpenBudget/budgetkey-ng2-components.git` 
+- clone repository with `git clone git@github.com:OpenBudget/openprocurement-ng2-components.git` or
+`git clone https://github.com/OpenBudget/openprocurement-ng2-components.git`
 (you may need to fork it first).
 - write some code :smiley:
 - use `npm start` to run local server - this will allow you to test your changes easily
@@ -84,16 +84,16 @@ the `app` folder if needed).
 By default, dev server is running on the port `:4000`, but you can change it using 
 environment variable: `PORT=8080 npm start` will start dev server on the port `:8080`.
 - once you're happy with your code - push it to GitHub and create a 
-[pull request](https://github.com/OpenBudget/budgetkey-ng2-components/pulls). 
+[pull request](https://github.com/OpenBudget/openprocurement-ng2-components/pulls).
 
 If you want to test your changes with some external project, we recommend two ways
 to do it:
 
 1. navigate to your project's folder, then to `node_modules` and create a
-symlink to folder with your local copy of `budgetkey-ng2-components`. 
+symlink to folder with your local copy of `openprocurement-ng2-components`.
 
-2. navigate to you local copy of `budgetkey-ng2-components` and run `npm link`.
-Then navigate to your project's folder and run `npm link budgetkey-ng2-components`.
+2. navigate to you local copy of `openprocurement-ng2-components` and run `npm link`.
+Then navigate to your project's folder and run `npm link openprocurement-ng2-components`.
 See `npm link` [docs](https://docs.npmjs.com/cli/link) for more details about how it works.
 
 For both ways, you will need to run `npm run prepublish` in the library's repository to
