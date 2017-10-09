@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
         <footer class="footer">
             <div class="inner-footer">
                 <div class="inner-text">
-                    <div>מפתח התקציב</div>
+                    <div>רכש פתוח</div>
                     <div>מבית <a href="{{ hasadna_url }}">הסדנא לידע ציבורי</a></div>                
                 </div>
             </div>   
@@ -16,6 +16,6 @@ import {Component} from '@angular/core';
 
 export class BudgetKeyFooterComponent {
 
-    title = "מפתח התקציב, מבית";
+    title = "רכש פתוח, מבית";
 
 }

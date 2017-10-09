@@ -1,7 +1,7 @@
 {
-  "name": "budgetkey-ng2-components",
-  "version": "0.1.0",
-  "description": "Common Components for BudgetKey",
+  "name": "openprocurement-ng2-components",
+  "version": "0.1.1",
+  "description": "Common Components for OpenProcure",
   "main": "lib/index.js",
   "module": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OpenBudget/budgetkey-ng2-components.git"
+    "url": "git+https://github.com/OpenBudget/openprocurement-ng2-components.git"
   },
   "keywords": [
     "Angular 2",
@@ -25,9 +25,9 @@
   "author": "adam.kariv@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/OpenBudget/budgetkey-ng2-components/issues"
+    "url": "https://github.com/OpenBudget/openprocurement-ng2-components/issues"
   },
-  "homepage": "https://github.com/OpenBudget/budgetkey-ng2-components#readme",
+  "homepage": "https://github.com/OpenBudget/openprocurement-ng2-components#readme",
   "devDependencies": {
     "awesome-typescript-loader": "^3.2.3",
     "extract-text-webpack-plugin": "^3.0.1",
