@@ -101,3 +101,14 @@ build all files, and only then you can rebuild your project.
 
 If you have your own workflow and it's better then ones listed above - let us know,
 we also wish to make our lives easier :wink:
+
+
+## Customizable styles / configurations
+
+The components support customization to allow reusability.
+
+An example app - `app-proure` demonstrates this functionality, to run it locally:
+
+`npm run start-procure`
+
+The customized site is available at http://localhost:4000/
