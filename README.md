@@ -107,8 +107,8 @@ we also wish to make our lives easier :wink:
 
 The components support customization to allow reusability.
 
-An example app - `app-proure` demonstrates this functionality, to run it locally:
+An example app - `app-proure` demonstrates this functionality, to run it locally (on a different port then regular app):
 
-`npm run start-procure`
+`PORT=4001 npm run start-procure`
 
-The customized site is available at http://localhost:4000/
+The customized site is available at http://localhost:4001/
