@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
     selector: 'budgetkey-footer',
@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
         <footer class="footer">
             <div class="inner-footer">
                 <div class="inner-text">
-                    <div>מפתח התקציב</div>
+                    <div>{{siteName}}</div>
                     <div>מבית <a href="{{ hasadna_url }}">הסדנא לידע ציבורי</a></div>                
                 </div>
             </div>   
@@ -15,7 +15,5 @@ import {Component} from '@angular/core';
 })
 
 export class BudgetKeyFooterComponent {
-
-    title = "מפתח התקציב, מבית";
-
+    @Input() siteName: string = 'מפתח התקציב';
 }

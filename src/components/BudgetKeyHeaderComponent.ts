@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
     selector: 'budgetkey-header',
@@ -10,7 +10,7 @@ import {Component} from '@angular/core';
                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                   </button>
-                  <a class="navbar-brand" href="/">מפתח התקציב</a>
+                  <a class="navbar-brand" href="/">{{siteName}}</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -40,7 +40,5 @@ import {Component} from '@angular/core';
 })
 
 export class BudgetKeyHeaderComponent {
-
-    title = "מפתח התקציב";
-
+    @Input() siteName: string;
 }

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'my-app',
   template: `
-    <budgetkey-container>
+    <budgetkey-container siteName="רכש פתוח">
       <h1>{{ greeting }}</h1>
     </budgetkey-container>
   `
