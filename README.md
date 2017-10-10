@@ -86,21 +86,22 @@ environment variable: `PORT=8080 npm start` will start dev server on the port `:
 - once you're happy with your code - push it to GitHub and create a 
 [pull request](https://github.com/OpenBudget/budgetkey-ng2-components/pulls). 
 
-If you want to test your changes with some external project, we recommend two ways
-to do it:
+If you want to test your changes with some external project - assuming you have the following directory structure:
 
-1. navigate to your project's folder, then to `node_modules` and create a
-symlink to folder with your local copy of `budgetkey-ng2-components`. 
+* `budgetkey-ng2-components/`
+  * directory containing a copy of the budgetkey-ng2-components project
+* `budgetkey-app-example/`
+  * directory containing the budgetkey app you want to test with
 
-2. navigate to you local copy of `budgetkey-ng2-components` and run `npm link`.
-Then navigate to your project's folder and run `npm link budgetkey-ng2-components`.
-See `npm link` [docs](https://docs.npmjs.com/cli/link) for more details about how it works.
+Run the following from your app's directory:
 
-For both ways, you will need to run `npm run prepublish` in the library's repository to
-build all files, and only then you can rebuild your project.
+```
+pushd ../budgetkey-ng2-components && npm run prepublish && popd && npm install ../budgetkey-ng2-components/
+```
 
-If you have your own workflow and it's better then ones listed above - let us know,
-we also wish to make our lives easier :wink:
+App is now integrated with the local copy of budgetkey-ng2-components.
+
+Pay attention that if you make changes to budgetkey-ng2-components you should run the above code again.
 
 
 ## Customizable styles / configurations

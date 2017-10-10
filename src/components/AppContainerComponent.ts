@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation, Input} from '@angular/core';
+import {Component, ViewEncapsulation, Input, OnInit} from '@angular/core';
 
 @Component({
     selector: 'budgetkey-container',
@@ -11,8 +11,15 @@ import {Component, ViewEncapsulation, Input} from '@angular/core';
         <budgetkey-footer [siteName]="siteName" *ngIf="showFooter"></budgetkey-footer>
     `
 })
-export class AppContainerComponent {
+export class AppContainerComponent implements OnInit {
     @Input() showHeader: boolean = true;
     @Input() showFooter: boolean = true;
     @Input() siteName: string = 'מפתח התקציב';
+    @Input() theme: string = '';
+
+    ngOnInit() {
+        if (this.theme == 'OpenProcurement') {
+            this.siteName = 'רכש פתוח';
+        }
+    }
 }
