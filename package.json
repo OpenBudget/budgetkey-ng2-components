@@ -7,6 +7,7 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "start": "webpack-dev-server",
+    "start-procure": "webpack-dev-server --config webpack.procure.config.js",
     "watch": "tsc -p src -w",
     "build:styles": "lessc --clean-css --source-map ./src/styles/budgetkey-ng2-components.less ./lib/styles/budgetkey-ng2-components.css",
     "build:scripts": "tsc -p src",
