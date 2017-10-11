@@ -86,30 +86,23 @@ environment variable: `PORT=8080 npm start` will start dev server on the port `:
 - once you're happy with your code - push it to GitHub and create a 
 [pull request](https://github.com/OpenBudget/budgetkey-ng2-components/pulls). 
 
-If you want to test your changes with some external project - assuming you have the following directory structure:
+If you want to test your changes with some external project, run the following from a budgetkey-ng2-components directory you want to integrate:
 
-* `budgetkey-ng2-components/`
-  * directory containing a copy of the budgetkey-ng2-components project
-* `budgetkey-app-example/`
-  * directory containing the budgetkey app you want to test with
+`npm run install-into <path_to_another_project>`
 
-Run the following from your app's directory:
-
-```
-pushd ../budgetkey-ng2-components && npm run prepublish && popd && npm install ../budgetkey-ng2-components/
-```
-
-App is now integrated with the local copy of budgetkey-ng2-components.
+This will install the current code into the other project.
 
 Pay attention that if you make changes to budgetkey-ng2-components you should run the above code again.
 
 
-## Customizable styles / configurations
+## Themes
 
-The components support customization to allow reusability.
+The components support themes to allow reusability.
 
-An example app - `app-proure` demonstrates this functionality, to run it locally (on a different port then regular app):
+Themes are defined in src/themes directory. The Default theme is the BudgetKey theme.
 
-`PORT=4001 npm run start-procure`
+Themes can be set using the BUDGETKEY_THEME environment variable, for example:
 
-The customized site is available at http://localhost:4001/
+`BUDGETKEY_THEME=OpenProcurement npm start`
+
+This will launch the example app with OpenProcurement theme.
