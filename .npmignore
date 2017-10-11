@@ -7,3 +7,6 @@ node_modules
 app
 package-lock.json
 webpack.config.js
+
+install-into.sh
+budgetkey-ng2-components-*.tgz
