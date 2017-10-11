@@ -1,4 +1,5 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
+import {ThemeService} from '../services/ThemeService';
 
 @Component({
     selector: 'budgetkey-footer',
@@ -6,8 +7,8 @@ import {Component, Input} from '@angular/core';
         <footer class="footer">
             <div class="inner-footer">
                 <div class="inner-text">
-                    <div>{{siteName}}</div>
-                    <div>מבית <a href="{{ hasadna_url }}">הסדנא לידע ציבורי</a></div>                
+                    <div>{{theme.siteName}}</div>
+                    <div>מבית <a href="{{hasadnaUrl}}">הסדנא לידע ציבורי</a></div>                
                 </div>
             </div>   
         </footer>
@@ -15,5 +16,6 @@ import {Component, Input} from '@angular/core';
 })
 
 export class BudgetKeyFooterComponent {
-    @Input() siteName: string = 'מפתח התקציב';
+    public hasadnaUrl = 'http://www.hasadna.org.il/';
+    constructor (protected theme: ThemeService) { }
 }

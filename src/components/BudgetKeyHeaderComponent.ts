@@ -1,4 +1,5 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
+import {ThemeService} from '../services/ThemeService';
 
 @Component({
     selector: 'budgetkey-header',
@@ -10,7 +11,7 @@ import {Component, Input} from '@angular/core';
                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                   </button>
-                  <a class="navbar-brand" href="/">{{siteName}}</a>
+                  <a class="navbar-brand" href="/">{{theme.siteName}}</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -40,5 +41,5 @@ import {Component, Input} from '@angular/core';
 })
 
 export class BudgetKeyHeaderComponent {
-    @Input() siteName: string;
+    constructor (protected theme: ThemeService) { }
 }

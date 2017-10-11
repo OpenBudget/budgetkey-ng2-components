@@ -8,7 +8,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const plugins = [
   new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    'process.env.BUDGETKEY_THEME': JSON.stringify(process.env.BUDGETKEY_THEME)
   }),
   new ExtractTextPlugin({
     filename: "[name].[contenthash].css",
