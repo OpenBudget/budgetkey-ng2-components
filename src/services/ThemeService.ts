@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core'
-import * as BudgetKeyTheme from '../themes/BudgetKey.json';
-import * as OpenProcurementTheme from '../themes/OpenProcurement.json';
 declare const process: any;
 
 
 @Injectable()
 export class ThemeService {
     public constructor() {
+        // TODO: load themes from json files
+        // I couldn't get it to work properly so that files are accessible from external app
         if (process.env.BUDGETKEY_THEME == 'OpenProcurement') {
-            this.theme = OpenProcurementTheme;
+            this.theme = {
+                "siteName": "רכש פתוח"
+            }
         } else {
-            this.theme = BudgetKeyTheme;
+            this.theme = {
+                "siteName": "מפתח התקציב"
+            }
         }
     }
 
