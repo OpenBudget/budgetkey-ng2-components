@@ -17,5 +17,5 @@ import {ThemeService} from '../services/ThemeService';
 
 export class BudgetKeyFooterComponent {
     public hasadnaUrl = 'http://www.hasadna.org.il/';
-    constructor (protected theme: ThemeService) { }
+    constructor (private theme: ThemeService) { }
 }

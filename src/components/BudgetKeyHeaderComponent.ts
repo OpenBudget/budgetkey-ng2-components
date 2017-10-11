@@ -41,5 +41,5 @@ import {ThemeService} from '../services/ThemeService';
 })
 
 export class BudgetKeyHeaderComponent {
-    constructor (protected theme: ThemeService) { }
+    constructor (private theme: ThemeService) { }
 }
