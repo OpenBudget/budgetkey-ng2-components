@@ -1,7 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { BudgetKeyCommonModule } from '../src';
+import { BudgetKeyCommonModule, THEME_TOKEN } from '../src';
 
 import { AppComponent } from './app.component';
 
@@ -9,6 +9,9 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     BudgetKeyCommonModule
+  ],
+  providers: [
+    {provide: THEME_TOKEN, useValue: 'Value replaced!'}
   ],
   declarations: [
     AppComponent

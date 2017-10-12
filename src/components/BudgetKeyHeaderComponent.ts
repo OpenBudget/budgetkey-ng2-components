@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
+import {THEME_TOKEN} from '../constants';
 
 @Component({
     selector: 'budgetkey-header',
@@ -10,7 +11,7 @@ import {Component} from '@angular/core';
                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                   </button>
-                  <a class="navbar-brand" href="/">מפתח התקציב</a>
+                  <a class="navbar-brand" href="/">{{ theme }}</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -43,4 +44,6 @@ export class BudgetKeyHeaderComponent {
 
     title = "מפתח התקציב";
 
+    constructor(@Inject(THEME_TOKEN) private theme: any) {
+    }
 }
