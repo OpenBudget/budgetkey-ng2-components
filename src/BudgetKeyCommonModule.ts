@@ -5,6 +5,8 @@ import { AppContainerComponent } from './components/AppContainerComponent';
 import { BudgetKeyHeaderComponent } from './components/BudgetKeyHeaderComponent';
 import { BudgetKeyFooterComponent } from './components/BudgetKeyFooterComponent';
 
+import { THEME_TOKEN } from './constants';
+
 /**
  * Created by adam on 27/12/2016.
  */
@@ -16,6 +18,9 @@ import { BudgetKeyFooterComponent } from './components/BudgetKeyFooterComponent'
     AppContainerComponent,
     BudgetKeyHeaderComponent,
     BudgetKeyFooterComponent,
+  ],
+  providers: [
+    {provide: THEME_TOKEN, useValue: 'Hello, world!'}
   ],
   exports: [
     AppContainerComponent,
