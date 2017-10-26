@@ -99,10 +99,10 @@ Pay attention that if you make changes to budgetkey-ng2-components you should ru
 
 The components support themes to allow reusability.
 
-Themes are defined in src/themes directory. The Default theme is the BudgetKey theme.
+The default theme is defined in src/BudgetKeyCommonModule.ts
 
-Themes can be set using the BUDGETKEY_THEME environment variable, for example:
+The demo app contains another optional theme, to use it, run:
 
 `BUDGETKEY_THEME=OpenProcurement npm start`
 
-This will launch the example app with OpenProcurement theme.
+This will launch the example app with OpenProcurement theme defined in app/app.module.ts

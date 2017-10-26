@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { AppContainerComponent } from './components/AppContainerComponent';
 import { BudgetKeyHeaderComponent } from './components/BudgetKeyHeaderComponent';
 import { BudgetKeyFooterComponent } from './components/BudgetKeyFooterComponent';
-import { ThemeService } from './services/ThemeService';
+
+import { THEME_TOKEN } from './constants';
 
 /**
  * Created by adam on 27/12/2016.
@@ -18,13 +19,15 @@ import { ThemeService } from './services/ThemeService';
     BudgetKeyHeaderComponent,
     BudgetKeyFooterComponent,
   ],
+  providers: [
+    {provide: THEME_TOKEN, useValue: {
+      siteName: "מפתח התקציב"
+    }}
+  ],
   exports: [
     AppContainerComponent,
     BudgetKeyHeaderComponent,
     BudgetKeyFooterComponent,
-  ],
-  providers: [
-    ThemeService
   ]
 })
 export class BudgetKeyCommonModule { }

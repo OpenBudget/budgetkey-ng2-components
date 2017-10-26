@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {ThemeService} from '../services/ThemeService';
+import {Component, Inject} from '@angular/core';
+import {THEME_TOKEN} from '../constants';
 
 @Component({
     selector: 'budgetkey-header',
@@ -41,5 +41,5 @@ import {ThemeService} from '../services/ThemeService';
 })
 
 export class BudgetKeyHeaderComponent {
-    constructor (private theme: ThemeService) { }
+    constructor (@Inject(THEME_TOKEN) private theme: any) { }
 }

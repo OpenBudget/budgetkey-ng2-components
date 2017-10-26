@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+declare const process: any;
 
 @Component({
   selector: 'my-app',
@@ -9,5 +10,5 @@ import { Component } from '@angular/core';
   `
 })
 export class AppComponent {
-  public greeting = 'זוהי אפליקציה לדוגמה של מפתח התקציב';
+  public greeting = 'זוהי אפליקציה לדוגמה של ' + (process.env.BUDGETKEY_THEME == 'OpenProcurement' ? 'רכש פתוח' : 'מפתח התקציב');
 }

@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {ThemeService} from '../services/ThemeService';
+import {Component, Inject} from '@angular/core';
+import {THEME_TOKEN} from '../constants';
 
 @Component({
     selector: 'budgetkey-footer',
@@ -17,5 +17,5 @@ import {ThemeService} from '../services/ThemeService';
 
 export class BudgetKeyFooterComponent {
     public hasadnaUrl = 'http://www.hasadna.org.il/';
-    constructor (private theme: ThemeService) { }
+    constructor (@Inject(THEME_TOKEN) private theme: any) { }
 }
