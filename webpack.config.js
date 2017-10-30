@@ -8,7 +8,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const plugins = [
   new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    // the BUDGETKEY_THEME env variable is used only for the demo app - to allow testing themes (defined in app/app.module.ts)
+    'process.env.BUDGETKEY_THEME': JSON.stringify(process.env.BUDGETKEY_THEME)
   }),
   new ExtractTextPlugin({
     filename: "[name].[contenthash].css",

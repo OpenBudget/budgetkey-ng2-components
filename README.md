@@ -86,18 +86,23 @@ environment variable: `PORT=8080 npm start` will start dev server on the port `:
 - once you're happy with your code - push it to GitHub and create a 
 [pull request](https://github.com/OpenBudget/budgetkey-ng2-components/pulls). 
 
-If you want to test your changes with some external project, we recommend two ways
-to do it:
+If you want to test your changes with some external project, run the following from a budgetkey-ng2-components directory you want to integrate:
 
-1. navigate to your project's folder, then to `node_modules` and create a
-symlink to folder with your local copy of `budgetkey-ng2-components`. 
+`npm run install-into <path_to_another_project>`
 
-2. navigate to you local copy of `budgetkey-ng2-components` and run `npm link`.
-Then navigate to your project's folder and run `npm link budgetkey-ng2-components`.
-See `npm link` [docs](https://docs.npmjs.com/cli/link) for more details about how it works.
+This will install the current code into the other project.
 
-For both ways, you will need to run `npm run prepublish` in the library's repository to
-build all files, and only then you can rebuild your project.
+Pay attention that if you make changes to budgetkey-ng2-components you should run the above code again.
 
-If you have your own workflow and it's better then ones listed above - let us know,
-we also wish to make our lives easier :wink:
+
+## Themes
+
+The components support themes to allow reusability.
+
+The default theme is defined in src/BudgetKeyCommonModule.ts
+
+The demo app contains another optional theme, to use it, run:
+
+`BUDGETKEY_THEME=OpenProcurement npm start`
+
+This will launch the example app with OpenProcurement theme defined in app/app.module.ts
