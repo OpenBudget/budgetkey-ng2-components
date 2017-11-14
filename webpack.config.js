@@ -31,7 +31,7 @@ module.exports = {
   entry: {
     'main': [
       './app/index.ts',
-      './src/styles/budgetkey-ng2-components.less'
+      './assets/styles/budgetkey-ng2-components.less'
     ]
   },
   output: {

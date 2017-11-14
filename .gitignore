@@ -4,5 +4,7 @@ node_modules
 *.iml
 
 lib
+assets/styles/*css
+assets/styles/*css.map
 
 budgetkey-ng2-components-*.tgz
