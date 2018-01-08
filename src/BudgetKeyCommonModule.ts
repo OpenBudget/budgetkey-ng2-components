@@ -7,12 +7,15 @@ import { BudgetKeyFooterComponent } from './components/BudgetKeyFooterComponent'
 
 import { THEME_TOKEN } from './constants';
 
+import { AuthModule } from 'budgetkey-ng2-auth';
+
 /**
  * Created by adam on 27/12/2016.
  */
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    AuthModule
   ],
   declarations: [
     AppContainerComponent,

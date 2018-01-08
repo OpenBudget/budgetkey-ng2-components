@@ -32,6 +32,7 @@ import {THEME_TOKEN} from '../constants';
           						<!--<a href="//twitter.com/share" class="twitter-share-button" data-count="none" data-hashtags="פותחים_תתקציב">Tweet</a>-->
           					<!--</li>-->
                     <!--<li><a href="#" id="subscribeWidget" role="button" class="btn btn-default"></a></li>-->
+                    <li><h5><budgetkey-ng2-auth></budgetkey-ng2-auth></h5></li>
                   </ul>
                 </div>
               </div>
