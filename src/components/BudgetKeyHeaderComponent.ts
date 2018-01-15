@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, Input} from '@angular/core';
 import {THEME_TOKEN} from '../constants';
 
 @Component({
@@ -15,15 +15,11 @@ import {THEME_TOKEN} from '../constants';
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav">
-                    <!--<li><a id="spending-link" href="">התקשרויות חדשות</a></li>-->
-                    <!--<li><a href="http://blog.obudget.org">הבלוג שלנו</a></li>-->
-                    <!--<li><a href="/email/">דו״ח העברות תקציביות</a></li>-->
-                    <!--<li><a href="http://spendex.obudget.org/">דו״ח איכות נתוני התקשרויות</a></li>-->
-                    <!--<li><a href="#tour" id="intro-link">הדרכה</a></li>-->
-                    <!--<li><a href="#glossaryModal" data-toggle="modal" >מונחון התקציב</a></li>-->
-                    <!--<li><a href="http://www.hasadna.org.il/%D7%94%D7%AA%D7%A0%D7%93%D7%91%D7%95%D7%AA/" target="_blank">הצטרפו אלינו</a></li>-->
-                  </ul>
+                    <form *ngIf="showSearchBar" ngNoForm class="col-xs-10">
+                      <input type="text" [placeholder]="theme.searchPlaceholder"
+                        [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}"> 
+                      <button (click)="doSearch()"></button>
+                    </form>
                   <ul class="nav navbar-nav navbar-left">
                     <!--<li class="social-button-container">-->
                       <!--<div class="fb-share-button" data-layout="button_count"></div>-->
@@ -42,5 +38,25 @@ import {THEME_TOKEN} from '../constants';
 })
 
 export class BudgetKeyHeaderComponent {
+    @Input() showSearchBar: boolean = false;
+
     constructor (@Inject(THEME_TOKEN) private theme: any) { }
+
+    searchTerm_: string = '';
+
+    doSearch() {
+        let href = 'https://next.obudget.org/s/?q=' + encodeURIComponent(this.searchTerm_);
+        window.open(href, '_self');
+    }
+
+    set searchTerm(v: string) {
+        this.searchTerm_ = v;
+        if (this.searchTerm_ && this.searchTerm_.length >= 3) {
+            this.doSearch();
+        }
+    }
+
+    get searchTerm() {
+        return this.searchTerm_;
+    }
 }
