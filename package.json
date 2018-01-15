@@ -1,6 +1,6 @@
 {
   "name": "budgetkey-ng2-components",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Common Components for BudgetKey",
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -12,7 +12,7 @@
     "build:scripts": "tsc -p src",
     "prebuild": "rm -rf lib",
     "build": "npm run build:scripts && npm run build:styles",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "install-into": "./install-into.sh"
   },
   "repository": {
