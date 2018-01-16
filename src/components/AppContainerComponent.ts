@@ -4,7 +4,7 @@ import {Component, ViewEncapsulation, Input} from '@angular/core';
     selector: 'budgetkey-container',
     encapsulation: ViewEncapsulation.None,
     template: `
-        <budgetkey-header *ngIf="showHeader"></budgetkey-header>
+        <budgetkey-header *ngIf="showHeader" [showSearchBar]="showSearchBar"></budgetkey-header>
         <div class="app">
           <ng-content></ng-content>
         </div>
@@ -14,4 +14,5 @@ import {Component, ViewEncapsulation, Input} from '@angular/core';
 export class AppContainerComponent {
     @Input() showHeader: boolean = true;
     @Input() showFooter: boolean = true;
+    @Input() showSearchBar: boolean = false;
 }

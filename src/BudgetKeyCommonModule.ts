@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AppContainerComponent } from './components/AppContainerComponent';
 import { BudgetKeyHeaderComponent } from './components/BudgetKeyHeaderComponent';
@@ -15,7 +16,8 @@ import { AuthModule } from 'budgetkey-ng2-auth';
 @NgModule({
   imports: [
     CommonModule,
-    AuthModule
+    AuthModule,
+    FormsModule
   ],
   declarations: [
     AppContainerComponent,
@@ -24,7 +26,8 @@ import { AuthModule } from 'budgetkey-ng2-auth';
   ],
   providers: [
     {provide: THEME_TOKEN, useValue: {
-      siteName: "מפתח התקציב"
+      siteName: "מפתח התקציב",
+      searchPlaceholder: "חפשו הכל... סעיף תקציבי, ארגון, אדם או כל דבר אחר העולה על דעתכם.."
     }}
   ],
   exports: [
