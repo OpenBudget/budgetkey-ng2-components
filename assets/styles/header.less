@@ -20,7 +20,7 @@ header {
 
   .navbar-brand {
     color: @textColor;
-    background: url(../img/obudget_key.png) no-repeat;
+    background: url(assets/img/obudget_key.png) no-repeat;
     background-size: 23px 52px;
     overflow: hidden;
     height: calc(@headerHeight - 3px);
@@ -42,5 +42,47 @@ header {
     margin-bottom: 0;
     line-height: 40px;
     padding-bottom: 19px;
+  }
+
+  .navbar-toggle {
+    display: none;
+  }
+  .navbar-collapse {
+
+    margin: 5px 0px;
+
+    form {
+      position: relative;
+    }
+
+    button {
+      position: absolute;
+      left: 20px;
+      top: 5px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      background: transparent url('assets/img/search.svg') center center no-repeat;
+    }
+
+    input {
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+      border: 2px solid #EEEEEE;
+      height: 50px;
+      border-radius: 25px;
+      font-size: 16px;
+      padding-left: 55px;
+      padding-right: 20px;
+      background: #FFFFFF;
+
+      &:focus {
+        outline: none;
+      }
+    }
   }
 }

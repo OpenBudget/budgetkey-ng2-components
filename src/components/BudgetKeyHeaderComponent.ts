@@ -15,11 +15,11 @@ import {THEME_TOKEN} from '../constants';
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <form *ngIf="showSearchBar" ngNoForm class="col-xs-10">
-                      <input type="text" [placeholder]="theme.searchPlaceholder"
-                        [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}"> 
-                      <button (click)="doSearch()"></button>
-                    </form>
+                  <form *ngIf="showSearchBar" ngNoForm class="col-xs-7">
+                    <input type="text" [placeholder]="theme.searchPlaceholder"
+                      [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}"> 
+                    <button (click)="doSearch()"></button>
+                  </form>
                   <ul class="nav navbar-nav navbar-left">
                     <!--<li class="social-button-container">-->
                       <!--<div class="fb-share-button" data-layout="button_count"></div>-->
