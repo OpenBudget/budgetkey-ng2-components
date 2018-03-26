@@ -32,7 +32,7 @@ import { AuthModule } from 'budgetkey-ng2-auth';
   ],
   providers: [
     {provide: THEME_TOKEN, useValue: {
-      siteName: "מפתח התקציב",
+      siteName: "",
       searchPlaceholder: "חפשו הכל... סעיף תקציבי, ארגון, אדם או כל דבר אחר העולה על דעתכם.."
     }}
   ],
