@@ -1,3 +1,3 @@
-import { OpaqueToken } from '@angular/core';
+import { InjectionToken } from '@angular/core';
 
-export const THEME_TOKEN = new OpaqueToken('Theme Config');
+export const THEME_TOKEN = new InjectionToken('Theme Config');
