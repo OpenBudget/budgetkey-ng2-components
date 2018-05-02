@@ -2,12 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { AppContainerComponent } from './components/AppContainerComponent';
-import { BudgetKeyHeaderComponent } from './components/BudgetKeyHeaderComponent';
-import { BudgetKeyFooterComponent } from './components/BudgetKeyFooterComponent';
-import { BudgetKeyLink } from './components/BudgetKeyLink';
-import { BudgetKeySearchLink } from './components/BudgetKeySearchLink';
-import { BudgetKeyItemLink } from './components/BudgetKeyItemLink';
+import { AppContainerComponent,
+         BudgetKeyFooterComponent,
+         BudgetKeyHeaderComponent,
+         BudgetKeySearchBar }  from './components';
 
 import { THEME_TOKEN } from './constants';
 
@@ -26,9 +24,7 @@ import { AuthModule } from 'budgetkey-ng2-auth';
     AppContainerComponent,
     BudgetKeyHeaderComponent,
     BudgetKeyFooterComponent,
-    BudgetKeyLink,
-    BudgetKeySearchLink,
-    BudgetKeyItemLink,
+    BudgetKeySearchBar,
   ],
   providers: [
     {provide: THEME_TOKEN, useValue: {
@@ -40,9 +36,7 @@ import { AuthModule } from 'budgetkey-ng2-auth';
     AppContainerComponent,
     BudgetKeyHeaderComponent,
     BudgetKeyFooterComponent,
-    BudgetKeyLink,
-    BudgetKeySearchLink,
-    BudgetKeyItemLink,
+    BudgetKeySearchBar,
   ]
 })
 export class BudgetKeyCommonModule { }
