@@ -1,6 +1,9 @@
 import {Component, Inject, Input, Output, EventEmitter} from '@angular/core';
 import {THEME_TOKEN} from '../constants';
 
+export type SearchBarType = {name: string, amount: number, main?: boolean};
+
+
 @Component({
     selector: 'budgetkey-search-bar',
     template: `
@@ -8,22 +11,25 @@ import {THEME_TOKEN} from '../constants';
     <div class="input-group-addon outer-right-side roundCorners-border-right-side" 
          (click)="dropdownOpen = !dropdownOpen">  
          <div class="inner-right-side roundCorners-border-right-side"
-         [ngClass]="{'has-text-all-tab': isSearchBarHasText && isAllTabSelected, 
-                     'has-text-not-all-tab': isSearchBarHasText && !isAllTabSelected,     
+         [ngClass]="{'has-text-all-tab': isSearchBarHasText && selectedTab.main, 
+                     'has-text-not-all-tab': isSearchBarHasText && !selectedTab.main,     
                      'inner-without-text-with-focus': !isSearchBarHasText && isSearchBarHasFocus,
                      'inner-without-text-without-focus': !isSearchBarHasText && !isSearchBarHasFocus}">
             <div class="right-side-symbols">
-                <img [src]="(!isAllTabSelected && isSearchBarHasText) ? 'assets/img/search-glass-white.svg' : 'assets/img/search-glass-red.svg'" 
+                <img [src]="(!selectedTab.main && isSearchBarHasText) ? 'assets/img/search-glass-white.svg' : 'assets/img/search-glass-red.svg'" 
                     *ngIf="!isSearching" 
                     class="search-icon search-icon-margin"/>  
                 <i *ngIf="isSearching" class="fa fa-circle-o-notch fa-spin search-icon-margin"></i>
-                <span *ngIf="isSearchBarHasText || !isAllTabSelected" 
+                <span *ngIf="isSearchBarHasText || !selectedTab.main" 
                     class="type-text-in-search-bar-right">
-                    {{selectedTab.name}} ({{selectedTab.amount.toLocaleString()}})
+                    {{selectedTab.name}}
+                    <span *ngIf="isNumeric(selectedTab.amount)">
+                        ({{selectedTab.amount.toLocaleString()}})
+                    </span>
                 </span>
                 <span id="drop-down-caret" class="drop-down-caret">  
-                    <i [ngClass]="{'down-arrow-red':  !isSearchBarHasText || isAllTabSelected,
-                                    'down-arrow-white': isSearchBarHasText && !isAllTabSelected}"> </i>
+                    <i [ngClass]="{'down-arrow-red':  !isSearchBarHasText || selectedTab.main,
+                                    'down-arrow-white': isSearchBarHasText && !selectedTab.main}"> </i>
                 </span> 
             </div>
 
@@ -32,8 +38,8 @@ import {THEME_TOKEN} from '../constants';
                 <a *ngFor="let tab of tabs; let i = index" href="#" 
                 (click)="dropdownOpen = false; switchTab($event, tab, i);">
                 {{tab.name}}
-                    <span>
-                        ({{ (tab.amount || 0).toLocaleString() }})
+                    <span *ngIf="isNumeric(tab.amount)">
+                        ({{ tab.amount.toLocaleString() }})
                     </span>
                 </a> 
             </div>
@@ -295,26 +301,28 @@ input {
 }
 `]
 })
-
 export class BudgetKeySearchBar {
 
-    @Input('searchTypes') tabs: {name: string, amount: number}[];
+    @Input('searchTypes') tabs: SearchBarType[];
+    @Input('selectedSearchType') selectedTab: SearchBarType;
     @Input('searchTerm') searchTerm: string;
     @Input('isSearching') isSearching: boolean;
     @Output('selected') onSelect = new EventEmitter<any>();
     @Output('search') onSearch = new EventEmitter<string>();
     
-
-    private isAllTabSelected = true;
     private isSearchBarHasFocus = false;
     private isSearchBarHasText = false;
     private dropdownOpen = false;
-    private selectedTab: any;
 
     constructor (@Inject(THEME_TOKEN) private theme: any) { }
 
+    private isNumeric(n: number) {
+        return n !== null && n >= 0;
+    }
+
     ngOnInit() {
         this.selectedTab = this.tabs[0];
+        this.isSearchBarHasText = this.searchTerm !== '';
     }
 
     search(term: string) {
@@ -327,12 +335,11 @@ export class BudgetKeySearchBar {
         this.dropdownOpen = !this.dropdownOpen
     }
  
-    switchTab ($event: any, selectedTab: any, index: number) {
+    switchTab ($event: any, selectedTab: any) {
         $event.stopPropagation();
         $event.preventDefault();
 
         this.selectedTab = selectedTab;
-        this.isAllTabSelected = index == 0;
 
         this.onSelect.emit(selectedTab);
     }

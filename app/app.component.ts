@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SearchBarType } from '../src/components';
 declare const process: any;
 
 @Component({
@@ -22,10 +23,10 @@ declare const process: any;
 export class AppComponent {
   public greeting = 'זוהי אפליקציה לדוגמה של ' + (process.env.BUDGETKEY_THEME == 'OpenProcurement' ? 'רכש פתוח' : 'מפתח התקציב');
 
-  public types = [
+  public types: SearchBarType[] = [
     {
       name: 'רכבות',
-      amount: 1,
+      amount: null,
     },
     {
       name: 'מכוניות',
@@ -33,7 +34,8 @@ export class AppComponent {
     },
     {
       name: 'סוסים',
-      amount: 100,
+      amount: 0,
+      main: true
     },
     {
       name: 'אוטובוסים',
@@ -54,6 +56,6 @@ export class AppComponent {
   typeSelected(tab: any) {
     tab.amount += 1;
     this.isSearching = true;
-    window.setTimeout(() => {this.isSearching = false;}, 60000);
+    window.setTimeout(() => {this.isSearching = false;}, 5000);
   }
 }
