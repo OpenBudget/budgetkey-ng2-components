@@ -12,7 +12,7 @@ import {THEME_TOKEN} from '../constants';
                     <span class="sr-only">Toggle navigation</span>
                   </button>
                   <a class="navbar-brand" 
-                     [style.background-image]="'url(../img/' + theme.siteLogo + ')'"
+                     [style.background-image]="'url(assets/img/' + theme.siteLogo + ')'"
                      [href]="theme.siteUrl"></a>
                 </div>
 
