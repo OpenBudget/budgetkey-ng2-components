@@ -14,9 +14,11 @@ declare const process: any;
                               [isSearching]="isSearching"
                               (search)="searchTerm = $event" 
                               (selected)="typeSelected($event)"
+                              (navigate)="href = $event"
         ></budgetkey-search-bar>
       </div>
       <pre>{{searchTerm}}</pre>
+      <a [href]="href">{{href}}</a>
     </budgetkey-container>
   `
 })
@@ -26,31 +28,40 @@ export class AppComponent {
   public types: SearchBarType[] = [
     {
       name: 'רכבות',
+      id: 'trains',
       amount: null,
     },
     {
       name: 'מכוניות',
+      id: 'cars',
       amount: 10,
     },
     {
       name: 'סוסים',
+      id: 'horses',
       amount: 0,
       main: true
     },
     {
       name: 'אוטובוסים',
+      id: 'buses',
       amount: 1000,
     },
     {
       name: 'נמלים',
+      id: 'ports',
+      defaultTerm: 'נמל אשדוד',
       amount: 1000000,
     },
     {
       name: 'מטוסים',
+      id: 'plains',
+      placeholder: 'איזה מטוס שבא לכם',
       amount: 100000,
     },
   ];
   private searchTerm = 'mosheee';
+  private href = '#';
   private isSearching = false;
 
   typeSelected(tab: any) {

@@ -1,7 +1,14 @@
 import {Component, Inject, Input, Output, EventEmitter} from '@angular/core';
 import {THEME_TOKEN} from '../constants';
 
-export type SearchBarType = {name: string, amount: number, main?: boolean};
+export type SearchBarType = {
+        name: string, 
+        amount: number,
+        id: string,
+        main?: boolean,
+        placeholder?: string,
+        defaultTerm?: string,
+};
 
 
 @Component({
@@ -49,10 +56,11 @@ export type SearchBarType = {name: string, amount: number, main?: boolean};
     <input #searchBox 
           class="form-control roundCorners-border-left-side left-side-search"
           type="text"
-          [placeholder]="theme.searchPlaceholder"
+          [placeholder]="selectedTab.placeholder || theme.searchPlaceholder"
           autofocus
-          (keyup)="search(searchBox.value)"
-          (keydown.backspace)="search(searchBox.value)"
+          (keyup)="instant && search(searchBox.value)"
+          (keyup.backspace)="instant && search(searchBox.value)"
+          (keyup.enter)="!instant && navigate(searchBox.value)"
           [value]="searchTerm"
           (focus)="isSearchBarHasFocus = true"
           (focusout)="isSearchBarHasFocus = false"
@@ -307,8 +315,11 @@ export class BudgetKeySearchBar {
     @Input('selectedSearchType') selectedTab: SearchBarType;
     @Input('searchTerm') searchTerm: string;
     @Input('isSearching') isSearching: boolean;
+    @Input('instantSearch') instant: boolean;
+
     @Output('selected') onSelect = new EventEmitter<any>();
     @Output('search') onSearch = new EventEmitter<string>();
+    @Output('navigate') onNavigate = new EventEmitter<string>();
     
     private isSearchBarHasFocus = false;
     private isSearchBarHasText = false;
@@ -321,13 +332,14 @@ export class BudgetKeySearchBar {
     }
 
     ngOnInit() {
+        this.tabs = this.tabs || this.theme.searchBarConfig;
         this.selectedTab = this.tabs[0];
         this.isSearchBarHasText = this.searchTerm !== '';
+        this.instant = this.instant === true;
     }
 
     search(term: string) {
         this.isSearchBarHasText = term !== '';
-
         this.onSearch.emit(term);
     }
 
@@ -335,7 +347,7 @@ export class BudgetKeySearchBar {
         this.dropdownOpen = !this.dropdownOpen
     }
  
-    switchTab ($event: any, selectedTab: any) {
+    switchTab($event: any, selectedTab: any) {
         $event.stopPropagation();
         $event.preventDefault();
 
@@ -344,4 +356,14 @@ export class BudgetKeySearchBar {
         this.onSelect.emit(selectedTab);
     }
 
+    navigate(term: string) {
+        let url = 
+            'https://next.obudget.org/s/?q=' +
+            encodeURIComponent(term) + 
+            '&dd=' + this.selectedTab.id;
+        if (this.theme.themeId) {
+            url += '&theme=' + this.theme.themeId;
+        }
+        this.onNavigate.emit(url);
+    }
 }

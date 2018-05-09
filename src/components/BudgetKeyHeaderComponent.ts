@@ -11,7 +11,9 @@ import {THEME_TOKEN} from '../constants';
                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                   </button>
-                  <a class="navbar-brand" href="/">{{theme.siteName}}</a>
+                  <a class="navbar-brand" 
+                     [style.background-image]="'url(../img/' + theme.siteLogo + ')'"
+                     [href]="theme.siteUrl"></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
