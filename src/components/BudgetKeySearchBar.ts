@@ -333,6 +333,7 @@ export class BudgetKeySearchBar {
 
     ngOnInit() {
         this.tabs = this.tabs || this.theme.searchBarConfig;
+        this.searchTerm = this.searchTerm || '';
         this.selectedTab = this.selectedTab || this.tabs[0];
         this.isSearchBarHasText = this.searchTerm !== '';
         this.instant = this.instant === true;

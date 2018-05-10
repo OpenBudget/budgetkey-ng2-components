@@ -17,25 +17,23 @@ import {THEME_TOKEN} from '../constants';
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <form *ngIf="showSearchBar" ngNoForm class="col-xs-7">
-                    <input type="text" [placeholder]="theme.searchPlaceholder" (click)="doSearch()"> 
-                    <button (click)="doSearch()"></button>
-                  </form>
+                  <div *ngIf="showSearchBar" class="col-xs-7">
+                    <budgetkey-search-bar (navigate)="doSearch($event)"></budgetkey-search-bar>
+                  </div>
                   <ul class="nav navbar-nav navbar-left">
-                    <!--<li class="social-button-container">-->
-                      <!--<div class="fb-share-button" data-layout="button_count"></div>-->
-        				  	<!--</li>-->
-                    <!--<li class="social-button-container twitter">-->
-          						<!--<a href="//twitter.com/share" class="twitter-share-button" data-count="none" data-hashtags="פותחים_תתקציב">Tweet</a>-->
-          					<!--</li>-->
-                    <!--<li><a href="#" id="subscribeWidget" role="button" class="btn btn-default"></a></li>-->
                     <li><h5><budgetkey-ng2-auth></budgetkey-ng2-auth></h5></li>
                   </ul>
                 </div>
               </div>
             </nav>
           </header>
-    `
+    `,
+    styles: [`
+
+    ::ng-deep .search-box {
+      margin: 5px !important;
+    }
+    `]
 })
 
 export class BudgetKeyHeaderComponent {
@@ -43,21 +41,7 @@ export class BudgetKeyHeaderComponent {
 
     constructor (@Inject(THEME_TOKEN) private theme: any) { }
 
-    searchTerm_: string = '';
-
-    doSearch() {
-        let href = 'https://next.obudget.org/s/?q=' + encodeURIComponent(this.searchTerm_);
+    doSearch(href: string) {
         window.open(href, '_self');
-    }
-
-    set searchTerm(v: string) {
-        this.searchTerm_ = v;
-        if (this.searchTerm_ && this.searchTerm_.length >= 3) {
-            this.doSearch();
-        }
-    }
-
-    get searchTerm() {
-        return this.searchTerm_;
     }
 }
