@@ -10,7 +10,8 @@ import {THEME_TOKEN} from '../constants';
                     <a [href]="link.href" [innerHtml]="link.title"></a>
                 </div>
             </div>
-            <div class="hasadna">
+            <div class="hasadna"
+                 [style.background-image]="'url(assets/img/hasadna-logo.svg)'">
                 <div>
                     פרויקט מבית<br/>
                     <a href="{{hasadnaUrl}}">הסדנא לידע ציבורי</a>
