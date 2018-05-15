@@ -1,7 +1,6 @@
 @import (less, reference) 'variables.less';
 
 html, body {
-  height: 100%;
   display: block;
   margin: 0;
   font-family: "Abraham TRIAL", "Alef Hebrew", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
@@ -12,17 +11,8 @@ html, body {
 
 .app {
   direction: rtl;
-  min-height: 100%;
-  margin-top: calc(9 - @headerHeight);
-  margin-bottom: calc(0 - @footerHeight - 6px);
-  padding-top: @headerHeight;
-  padding-bottom: @footerHeight;
+  min-height: ~"calc(100vh - 333px - 64px)";
+  margin-top: 9px; //calc(9 - @headerHeight);
+  margin-bottom: 6px;  
   width: 100%;
-
-  &:after {
-    content: "";
-    display: block;
-    height: @footerHeight;
-  }
-
 }

@@ -2,21 +2,118 @@
 
 footer {
   padding-top: 10px;
-  height: @footerHeight;
+  padding-bottom: 30px;
   width: 100%;
-  overflow:hidden;
-  background-color: #ffffff;
+  background-color: #F0F0F0;
+  min-height: @footerHeight;
 
   border-top: 1px solid #e5e5e5;
   box-shadow: inset 0 13px 15px -15px rgba(0, 0, 0, .74);
+
+  .links {
+
+    padding: 20px;
+    padding-right: 80px;
+    display: inline-block;
+
+    .link {
+
+      display: inline-block;
+      margin-left: 40px;
+
+      a {
+        color: #888;
+        font-size: 14px;
+
+        &:hover {
+          color: #444;  
+        }
+      }
+    }
+  }
+
+  .supporters {
+    padding: 20px;
+    padding-right: 80px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    
+    .supporter {
+      display: flex;
+      flex-flow: row;
+      justify-content: center;
+      align-items: center;
+      margin-left: 40px;      
+
+      .supporterText {
+        display: inline-block;
+        font-size: 12px;
+        text-align: center;
+        vertical-align: middle;
+        margin: 5px;
+      }
+      
+      .supporterLogo {
+        display: inline-block;
+        background: url('') no-repeat center / contain;
+        height: 60px;
+        width: 100px;  
+        margin: 5px;
+      }
+    }
+  }
+
+  .hasadna{
+    margin: 10px;
+    float: left;
+    background: url('assets/img/hasadna-logo.svg') no-repeat left top / 50px;
+    padding-left: 60px;
+    margin-left: 30px;
+    height: 50px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .license {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    div {
+      border-top: solid 1px #888;
+      padding-top: 20px;
+      margin-top: 10px;
+
+      img {
+        height: 24px;
+        margin-left: 20px;
+      }
+  
+      span {
+        font-size: 14px;
+        color: #888;
+        letter-spacing: 0.3px;
+      }
+    }
+  }
+
+  .eu-disclaimer {
+    display: flex;
+    justify-content: center;
+    
+    span {
+      display: inline-block;
+      max-width: 50%;     
+      text-align: center;
+    }
+  }
+
 }
 
 .inner-footer {
-  background: url('../img/hasadna.png') no-repeat left top / 70px;
-  padding-left: 80px;
-  margin-left: 10px;
-  position: absolute;
-  left: 0;
   text-align: left;
   height: @footerHeight;
 }

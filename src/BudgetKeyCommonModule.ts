@@ -72,7 +72,53 @@ import { AuthModule } from 'budgetkey-ng2-auth';
             id: 'tenders,contract-spending',
             rid: ['tenders', 'contractspending']
           }
-        ]
+        ],
+        footerLinks: [
+          {
+            href: 'mailto:info@hasadna.org.il',
+            title: 'צרו קשר'
+          },
+          {
+            href: 'https://forum.hasadna.org.il/c/eknights/obudget',
+            title: 'דווחו על תקלה'
+          },
+          {
+            href: 'https://github.com/OpenBudget/BudgetKey',
+            title: 'קוד האתר'
+          },
+          {
+            href: 'https://forum.hasadna.org.il/c/eknights/obudget',
+            title: 'קבוצת הדיון שלנו'
+          },
+          {
+            href: 'https://github.com/OpenBudget/BudgetKey/blob/master/documentation/UsingTheAPI.md',
+            title: 'API'
+          },
+        ],
+        supporterInfos: {
+            eu: {
+              name: 'האיחוד האירופי',
+              logo: 'eu.svg',
+              url: 'https://europa.eu/european-union/index_en',
+              text: `
+This Project is funded by the European Union<br/>
+פרויקט זה מתבצע במימון האיחוד האירופי<br/>
+هذا المشروع ممول من قبل الاتحاد الأوروبي `,
+            },
+            midot: {
+              name: 'מידות',
+              logo: 'midot.svg',
+              url: 'http://www.midot.org.il/',
+            },
+            migdal: {
+              name: 'מגדל',
+              logo: 'migdal.svg',
+              url: 'https://www.migdal.co.il/He/MigdalTeam/social_involvment_migdal/Pages/social_inv.aspx',
+            },
+
+        },
+        supporters: ['eu', 'midot', 'migdal'],
+        euDisclaimer: true
       }
     }
   ],
