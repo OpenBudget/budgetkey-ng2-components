@@ -5,7 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { AppContainerComponent,
          BudgetKeyFooterComponent,
          BudgetKeyHeaderComponent,
-         BudgetKeySearchBar }  from './components';
+         BudgetKeySearchBar, 
+         BudgetKeyTooltipDirective}  from './components';
 
 import { THEME_TOKEN } from './constants';
 
@@ -25,6 +26,7 @@ import { AuthModule } from 'budgetkey-ng2-auth';
     BudgetKeyHeaderComponent,
     BudgetKeyFooterComponent,
     BudgetKeySearchBar,
+    BudgetKeyTooltipDirective,
   ],
   providers: [
     {
@@ -127,6 +129,7 @@ This Project is funded by the European Union<br/>
     BudgetKeyHeaderComponent,
     BudgetKeyFooterComponent,
     BudgetKeySearchBar,
+    BudgetKeyTooltipDirective,
   ]
 })
 export class BudgetKeyCommonModule { }

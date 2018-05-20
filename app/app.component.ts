@@ -19,11 +19,41 @@ declare const process: any;
       </div>
       <pre>{{searchTerm}}</pre>
       <a [href]="href">{{href}}</a>
+      <div>
+        זאת הדגמה פשוטה של
+        <span [bkTooltip]="'הודעה שמסבירה מהו הדבר עליו עומדים'">
+          טולטיפ
+        </span>
+        פשוט של מפתח התקציב.
+      </div>
+      <div>
+        יש כאן עוד טקסט סתם כי בא לי.
+      </div>
+      <div>
+        יש כאן עוד 
+        <span [bkTooltip]="longTooltipContent">
+        טקסט
+        </span>
+        סתם כי בא לי.
+      </div>
+      <div>
+        יש כאן עוד טקסט סתם כי בא לי.
+      </div>
     </budgetkey-container>
   `
 })
 export class AppComponent {
   public greeting = 'זוהי אפליקציה לדוגמה של ' + (process.env.BUDGETKEY_THEME == 'OpenProcurement' ? 'רכש פתוח' : 'מפתח התקציב');
+
+  private longTooltipContent=`
+  ״המפה החברתית״ הינו מיזם חדשני
+   ליצירת בסיס נתונים ראשון מסוגו, המאפשר לציבור הרחב לקבל תמונה רחבה ומקיפה
+   על הארגונים והעמותות הפועלים בישראל ועל מידת המעורבות והתמיכה הממשלתית בפעילותם
+  <br/>
+  ״המפה החברתית״ הינו מיזם חדשני
+   ליצירת בסיס נתונים ראשון מסוגו, המאפשר לציבור הרחב לקבל תמונה רחבה ומקיפה
+   על הארגונים והעמותות הפועלים בישראל ועל מידת המעורבות והתמיכה הממשלתית בפעילותם
+  `;
 
   public types: SearchBarType[] = [
     {
