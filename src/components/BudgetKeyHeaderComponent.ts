@@ -6,21 +6,21 @@ import {THEME_TOKEN} from '../constants';
     template: `
           <header class="site-nav">
             <nav class="navbar navbar-default" role="navigation">
-              <div class="container-fluid">
-                <div class="navbar-header">
+              <div>
+                <div>
                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                   </button>
-                  <a class="navbar-brand" 
+                  <a class="navbar-brand"
                      [style.background-image]="'url(assets/img/' + theme.siteLogo + ')'"
                      [href]="theme.siteUrl"></a>
                 </div>
 
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <div *ngIf="showSearchBar" class="col-xs-7">
+                <div class="navbar" id="bs-example-navbar-collapse-1">
+                  <div *ngIf="showSearchBar" class="search-div col-xs-7">
                     <budgetkey-search-bar (navigate)="doSearch($event)"></budgetkey-search-bar>
                   </div>
-                  <ul class="nav navbar-nav navbar-left">
+                  <ul class="auth-ul col-xs-3">
                     <li><h5><budgetkey-ng2-auth></budgetkey-ng2-auth></h5></li>
                   </ul>
                 </div>
@@ -33,6 +33,63 @@ import {THEME_TOKEN} from '../constants';
     ::ng-deep .search-box {
       margin: 5px !important;
     }
+    
+    a.navbar-brand {
+        width: 80px;
+        padding: 0px;
+        margin-right: 2%;
+    }
+    div.search-div{
+      margin-right: 5%; 
+      margin-top: 2px; 
+      padding: 0px;
+    }
+    ul.auth-ul{
+        list-style-type: none;
+        width: 5%;
+        float: left;
+        padding: 0px;
+    }
+    
+    @media only screen and (min-width: 992px){ 
+        div.search-div{
+          width: 65%; 
+          margin-right: 10%;
+        }
+        ul.auth-ul{
+            margin-left: 1%;
+        }
+    }    
+    
+    @media only screen and (min-width: 768px) and (max-width: 992px) { 
+        div.search-div{
+          width: 65%; 
+          margin-right: 8%;
+        }
+        ul.auth-ul{
+            margin-left: 3%;
+        }
+    }    
+        
+    @media only screen and (min-width: 600px) and (max-width: 768px){ 
+        div.search-div{
+          width: 65%; 
+        }
+        ul.auth-ul{
+            margin-left: 3%;
+        }
+    }
+    
+    @media only screen and (max-width: 600px) { 
+        div.search-div{
+          width: 60%; 
+        }
+        ul.auth-ul{
+            margin-left: 5%;
+        }
+    }
+    
+   
     `]
 })
 
