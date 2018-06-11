@@ -33,63 +33,6 @@ import {THEME_TOKEN} from '../constants';
     ::ng-deep .search-box {
       margin: 5px !important;
     }
-    
-    a.navbar-brand {
-        width: 80px;
-        padding: 0px;
-        margin-right: 2%;
-    }
-    div.search-div{
-      margin-right: 5%; 
-      margin-top: 2px; 
-      padding: 0px;
-    }
-    ul.auth-ul{
-        list-style-type: none;
-        width: 5%;
-        float: left;
-        padding: 0px;
-    }
-    
-    @media only screen and (min-width: 992px){ 
-        div.search-div{
-          width: 65%; 
-          margin-right: 10%;
-        }
-        ul.auth-ul{
-            margin-left: 1%;
-        }
-    }    
-    
-    @media only screen and (min-width: 768px) and (max-width: 992px) { 
-        div.search-div{
-          width: 65%; 
-          margin-right: 8%;
-        }
-        ul.auth-ul{
-            margin-left: 3%;
-        }
-    }    
-        
-    @media only screen and (min-width: 600px) and (max-width: 768px){ 
-        div.search-div{
-          width: 65%; 
-        }
-        ul.auth-ul{
-            margin-left: 3%;
-        }
-    }
-    
-    @media only screen and (max-width: 600px) { 
-        div.search-div{
-          width: 60%; 
-        }
-        ul.auth-ul{
-            margin-left: 5%;
-        }
-    }
-    
-   
     `]
 })
 
