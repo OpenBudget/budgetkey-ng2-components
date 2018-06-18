@@ -6,21 +6,21 @@ import {THEME_TOKEN} from '../constants';
     template: `
           <header class="site-nav">
             <nav class="navbar navbar-default" role="navigation">
-              <div class="container-fluid">
-                <div class="navbar-header">
+              <div>
+                <div>
                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                   </button>
-                  <a class="navbar-brand" 
+                  <a class="navbar-brand"
                      [style.background-image]="'url(assets/img/' + theme.siteLogo + ')'"
                      [href]="theme.siteUrl"></a>
                 </div>
 
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <div *ngIf="showSearchBar" class="col-xs-7">
+                <div class="navbar" id="bs-example-navbar-collapse-1">
+                  <div *ngIf="showSearchBar" class="search-div col-xs-7">
                     <budgetkey-search-bar (navigate)="doSearch($event)"></budgetkey-search-bar>
                   </div>
-                  <ul class="nav navbar-nav navbar-left">
+                  <ul class="auth-ul col-xs-3">
                     <li><h5><budgetkey-ng2-auth></budgetkey-ng2-auth></h5></li>
                   </ul>
                 </div>
