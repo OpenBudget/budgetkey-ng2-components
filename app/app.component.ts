@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SearchBarType } from '../src/components';
-import { AuthService } from 'budgetkey-ng2-auth/lib/services';
+import { AuthService } from 'budgetkey-ng2-auth';
+import { ListsService, ListContents } from '../src/services/lists.service';
 declare const process: any;
 
 @Component({
@@ -38,7 +39,14 @@ declare const process: any;
         סתם כי בא לי.
       </div>
       <div>
-        יש כאן עוד טקסט סתם כי בא לי. {{auth.user ? auth.user.profile.name : 'xxx'}}
+        יש כאן עוד טקסט סתם כי בא לי. {{profile['name']}}
+      </div>
+      <div>
+        <ng-container *ngIf='items'>
+          <div *ngFor='let item of items'>
+            {{item.title}} || {{item.url}}
+          </div>
+        </ng-container>
       </div>
     </budgetkey-container>
   `
@@ -94,8 +102,28 @@ export class AppComponent {
   private searchTerm = 'mosheee';
   private href = '#';
   private isSearching = false;
+  private profile: any = {};
+  private items: any = [];
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService, private lists: ListsService) {
+    lists.put('searches', {'title': 'CNN', 'url': 'https://cnn.com'})
+         .subscribe((result) => {
+           console.log('PUT result:', result);
+           lists.get('searches')
+                .subscribe((lc: ListContents) => {
+                  this.items = lc.items;
+                });
+          })
+    auth.getUser()
+        .subscribe((user) => {
+          console.log('USER', user);
+          if (user !== null && user.profile) {
+            this.profile = user.profile;
+          } else {
+            this.profile = {};
+          }
+        });
+  }
 
   typeSelected(tab: any) {
     tab.amount += 1;

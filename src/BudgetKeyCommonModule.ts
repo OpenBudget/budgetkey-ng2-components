@@ -11,6 +11,7 @@ import { AppContainerComponent,
 import { THEME_TOKEN } from './constants';
 
 import { AuthModule } from 'budgetkey-ng2-auth';
+import { ListsService } from './services/lists.service';
 
 /**
  * Created by adam on 27/12/2016.
@@ -29,6 +30,7 @@ import { AuthModule } from 'budgetkey-ng2-auth';
     BudgetKeyTooltipDirective,
   ],
   providers: [
+    ListsService,
     {
       provide: THEME_TOKEN, 
       useValue: {
