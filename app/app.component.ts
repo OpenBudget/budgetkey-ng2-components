@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SearchBarType } from '../src/components';
+import { AuthService } from 'budgetkey-ng2-auth/lib/services';
 declare const process: any;
 
 @Component({
@@ -37,13 +38,13 @@ declare const process: any;
         סתם כי בא לי.
       </div>
       <div>
-        יש כאן עוד טקסט סתם כי בא לי.
+        יש כאן עוד טקסט סתם כי בא לי. {{auth.user ? auth.user.profile.name : 'xxx'}}
       </div>
     </budgetkey-container>
   `
 })
 export class AppComponent {
-  public greeting = 'זוהי אפליקציה לדוגמה של ' + (process.env.BUDGETKEY_THEME == 'OpenProcurement' ? 'רכש פתוח' : 'מפתח התקציב');
+  public greeting = 'זוהי אפליקציה לדוגמה של מפתח התקציב';
 
   private longTooltipContent=`
   ״המפה החברתית״ הינו מיזם חדשני
@@ -93,6 +94,8 @@ export class AppComponent {
   private searchTerm = 'mosheee';
   private href = '#';
   private isSearching = false;
+
+  constructor(private auth: AuthService) {}
 
   typeSelected(tab: any) {
     tab.amount += 1;

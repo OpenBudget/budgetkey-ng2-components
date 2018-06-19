@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BudgetKeyCommonModule, THEME_TOKEN } from '../src';
 
 import { AppComponent } from './app.component';
+import { AuthModule } from 'budgetkey-ng2-auth';
 
 declare const process: any;
 
@@ -22,7 +23,8 @@ if (process.env.BUDGETKEY_THEME == 'OpenProcurement') {
 @NgModule({
   imports: [
     BrowserModule,
-    BudgetKeyCommonModule
+    BudgetKeyCommonModule,
+    AuthModule
   ],
   providers: providers,
   declarations: [
