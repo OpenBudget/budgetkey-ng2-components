@@ -20,9 +20,9 @@ import {THEME_TOKEN} from '../constants';
                   <div *ngIf="showSearchBar" class="search-div col-xs-7">
                     <budgetkey-search-bar (navigate)="doSearch($event)"></budgetkey-search-bar>
                   </div>
-                  <ul class="auth-ul col-xs-3">
-                    <li><h5><budgetkey-ng2-auth></budgetkey-ng2-auth></h5></li>
-                  </ul>
+                  <div class="auth-widget col-xs-3">
+                    <budgetkey-ng2-auth></budgetkey-ng2-auth>
+                  </div>
                 </div>
               </div>
             </nav>
