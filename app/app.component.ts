@@ -14,7 +14,10 @@ declare const process: any;
         <budgetkey-search-bar [searchTypes]="types" 
                               [searchTerm]="searchTerm"
                               [isSearching]="isSearching"
-                              (search)="searchTerm = $event" 
+                              [allowSubscribe]='true'
+                              [externalUrlParams]='"a=b"'
+                              [externalTitle]='"מחפשים את " + searchTerm'
+                              (search)="searchTermChanged($event)" 
                               (selected)="typeSelected($event)"
                               (navigate)="href = $event"
         ></budgetkey-search-bar>
@@ -30,6 +33,7 @@ declare const process: any;
       </div>
       <div>
         יש כאן עוד טקסט סתם כי בא לי.
+        <budgetkey-sub-star [active]="starActive" [enabled]="starEnabled" (clicked)="starClicked()"></budgetkey-sub-star>
       </div>
       <div>
         יש כאן עוד 
@@ -37,6 +41,7 @@ declare const process: any;
         טקסט
         </span>
         סתם כי בא לי.
+        {{ searchTerm }}
       </div>
       <div>
         יש כאן עוד טקסט סתם כי בא לי. {{profile['name']}}
@@ -104,6 +109,8 @@ export class AppComponent {
   private isSearching = false;
   private profile: any = {};
   private items: any = [];
+  private starEnabled = false;
+  private starActive= false;
 
   constructor(private auth: AuthService, private lists: ListsService) {
     lists.put('searches', {'title': 'CNN', 'url': 'https://cnn.com'})
@@ -129,5 +136,22 @@ export class AppComponent {
     tab.amount += 1;
     this.isSearching = true;
     window.setTimeout(() => {this.isSearching = false;}, 5000);
+  }
+
+  searchTermChanged(term: string) {
+    console.log('STC', term);
+    this.searchTerm = term;
+    this.href = term;
+  }
+
+  starClicked() {
+    if (!this.starEnabled) {
+      this.starEnabled = true;
+    } else if (!this.starActive) {
+      this.starActive = true;
+    } else {
+      this.starEnabled = false;
+      this.starActive = false;
+    }
   }
 }

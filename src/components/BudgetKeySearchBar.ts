@@ -1,4 +1,4 @@
-import {Component, Inject, Input, Output, EventEmitter} from '@angular/core';
+import {Component, Inject, Input, Output, EventEmitter, OnChanges} from '@angular/core';
 import {THEME_TOKEN} from '../constants';
 
 export type SearchBarType = {
@@ -58,19 +58,26 @@ export type SearchBarType = {
           type="text"
           [placeholder]="selectedTab.placeholder || theme.searchPlaceholder"
           autofocus
-          (keyup)="instant && search(searchBox.value)"
-          (keyup.backspace)="instant && search(searchBox.value)"
-          (keyup.enter)="!instant && navigate(searchBox.value)"
+          (keyup)="search(searchBox.value)"
+          (keyup.backspace)="search(searchBox.value)"
+          (keyup.enter)="navigate(searchBox.value)"
           [value]="searchTerm"
           (focus)="isSearchBarHasFocus = true"
           (focusout)="isSearchBarHasFocus = false"
-    />    
+    />
+
+    <div class='subscribe-button' *ngIf='allowSubscribe'>
+        <budgetkey-subscription-manager [externalUrl]='externalUrl' 
+                                        [externalTitle]='externalTitle'
+        ></budgetkey-subscription-manager>
+    </div>
 
 </div>
 `,
 styles: [`
 .search-box {
     margin: 20px;
+    position: relative;
 }
 
 .search-loader {
@@ -307,15 +314,25 @@ input {
 .right-side-symbols i {
     vertical-align: middle;
 }
+
+.subscribe-button {
+    position: absolute;
+    z-index: 3;
+    left: 11px;
+    top: 11px;
+}
 `]
 })
-export class BudgetKeySearchBar {
+export class BudgetKeySearchBar implements OnChanges {
 
     @Input('searchTypes') tabs: SearchBarType[];
     @Input('selectedSearchType') selectedTab: SearchBarType;
     @Input('searchTerm') searchTerm: string;
     @Input('isSearching') isSearching: boolean;
     @Input('instantSearch') instant: boolean;
+    @Input('allowSubscribe') allowSubscribe: boolean = false;
+    @Input('externalTitle') externalTitle: string;
+    @Input('externalUrlParams') externalUrlParams: string;
 
     @Output('selected') onSelect = new EventEmitter<any>();
     @Output('search') onSearch = new EventEmitter<string>();
@@ -324,11 +341,26 @@ export class BudgetKeySearchBar {
     private isSearchBarHasFocus = false;
     private isSearchBarHasText = false;
     private dropdownOpen = false;
-
+    private externalUrl: string;
+    
     constructor (@Inject(THEME_TOKEN) private theme: any) { }
 
     private isNumeric(n: number) {
         return n !== null && n >= 0;
+    }
+
+    private calcExternalUrl() {
+        let url = 
+            'https://next.obudget.org/s/?q=' +
+            encodeURIComponent(this.searchTerm) + 
+            '&dd=' + this.selectedTab.id;
+        if (this.externalUrlParams) {
+            url += '&' + this.externalUrlParams;
+        }
+        if (this.theme.themeId) {
+            url += '&theme=' + this.theme.themeId;
+        }
+        this.externalUrl = url;
     }
 
     ngOnInit() {
@@ -337,10 +369,21 @@ export class BudgetKeySearchBar {
         this.selectedTab = this.selectedTab || this.tabs[0];
         this.isSearchBarHasText = this.searchTerm !== '';
         this.instant = this.instant === true;
+        this.calcExternalUrl();
+    }
+
+    ngOnChanges() {
+        if (this.selectedTab) {
+            this.calcExternalUrl();
+        }
     }
 
     search(term: string) {
         this.isSearchBarHasText = term !== '';
+        
+        this.searchTerm = term;
+        this.calcExternalUrl();
+
         this.onSearch.emit(term);
     }
 
@@ -353,18 +396,15 @@ export class BudgetKeySearchBar {
         $event.preventDefault();
 
         this.selectedTab = selectedTab;
+        this.calcExternalUrl();
 
         this.onSelect.emit(selectedTab);
     }
 
     navigate(term: string) {
-        let url = 
-            'https://next.obudget.org/s/?q=' +
-            encodeURIComponent(term) + 
-            '&dd=' + this.selectedTab.id;
-        if (this.theme.themeId) {
-            url += '&theme=' + this.theme.themeId;
-        }
-        this.onNavigate.emit(url);
+        this.searchTerm = term;
+        this.calcExternalUrl();
+
+        this.onNavigate.emit(this.externalUrl);
     }
 }

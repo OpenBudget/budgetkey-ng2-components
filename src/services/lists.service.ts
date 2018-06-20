@@ -43,17 +43,23 @@ export class ListsService {
                .first();
   }
 
-  public put(list: string, item: ListItem): Observable<ListContents> {
+  public put(list: string, item: ListItem): Observable<ListItem> {
     return this.token
                .filter((token) => token !== null)
                .switchMap((token) => {
+                 console.log('PUTTING ITEM', item);
                  return this.http.put('https://next.obudget.org/list?list=' + encodeURIComponent(list) + '&jwt=' +token, item);
                })
-               .map((response) => response.json())
+               .map((response) => {
+                 let added = response.json();
+                 item.id = added.item_id;
+                 item.list_id = added.list_id;
+                 return item;
+               })
                .first();
   }
 
-  public delete(list: string, item_id: number): Observable<ListContents> {
+  public delete(list: string, item_id: number): Observable<boolean> {
     return this.token
                .filter((token) => token !== null)
                .switchMap((token) => {
