@@ -57,7 +57,7 @@
     "@angular/router": "^5.2.9",
     "bootstrap": "^3.3.7",
     "bootstrap-rtl": "^3.3.4",
-    "budgetkey-ng2-auth": "^0.1.4",
+    "budgetkey-ng2-auth": "^0.1.5",
     "core-js": "^2.5.1",
     "reflect-metadata": "^0.1.10",
     "rxjs": "^5.5.8",
