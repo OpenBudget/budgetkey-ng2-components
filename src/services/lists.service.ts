@@ -12,6 +12,7 @@ export class ListItem {
   list_id?: number;
   url: string;
   title: string;
+  properties: any;
 }
 
 export class ListContents {

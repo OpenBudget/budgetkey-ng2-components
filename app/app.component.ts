@@ -113,7 +113,13 @@ export class AppComponent {
   private starActive= false;
 
   constructor(private auth: AuthService, private lists: ListsService) {
-    lists.put('searches', {'title': 'CNN', 'url': 'https://cnn.com'})
+    lists.put('searches', {'title': 'CNN', 'url': 'https://cnn.com', 
+                           'properties': {
+                             'term': 'intel',
+                             'period': 'alltime',
+                             'docTypes': 'entities'
+                           }
+                          })
          .subscribe((result) => {
            console.log('PUT result:', result);
            lists.get('searches')
