@@ -50,32 +50,32 @@ import { ListsService } from './services/lists.service';
             rid: []
           },
           {
-            name: 'סעיף תקציבי',
+            name: 'סעיפים תקציביים',
             placeholder: 'חפשו שמות של סעיפים ותקנות תקציביות...',
             defaultTerm: 'משרד',
             id: 'budget',
             rid: ['budget']
           },
           {
-            name: 'ארגון',
+            name: 'ארגונים',
             placeholder: 'חפשו פרטים של חברות, עמותות וארגונים אחרים...',
             id: 'entities',
             rid: ['entities']
           },
           {
-            name: 'העברה תקציבית',
+            name: 'העברות תקציביות',
             placeholder: 'חפשו פרטים על העברות תקציביות...',
             id: 'national-budget-changes',
             rid: ['nationalbudgetchanges']
           },
           {
-            name: 'תמיכות',
+            name: 'תמיכות והעברות',
             placeholder: 'חפשו פרטים על תמיכות תקציביות...',
             id: 'supports',
             rid: ['supports']
           },
           {
-            name: 'רכש',
+            name: 'מכרזים והתקשרויות',
             placeholder: 'חפשו פרטים על מכרזים, פשטורים ממכרז והתקשרויות ממשלתיות...',
             id: 'tenders,contract-spending',
             rid: ['tenders', 'contractspending']
