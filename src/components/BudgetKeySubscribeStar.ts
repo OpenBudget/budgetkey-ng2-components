@@ -13,10 +13,10 @@ import {Component, Input, Output, EventEmitter, OnChanges} from '@angular/core';
 @Component({
     selector: 'budgetkey-sub-star',
     template: `
-    <img *ngIf='enabled && active' src='/assets/img/star-active.svg'
+    <img *ngIf='enabled && active' src='assets/img/star-active.svg'
          (click)='click($event)'
     />
-    <img *ngIf='!active || !enabled' src='/assets/img/star-inactive.svg'
+    <img *ngIf='!active || !enabled' src='assets/img/star-inactive.svg'
          [style.opacity]="opacity"
          (click)='click($event)'
     />
