@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>ui/icon/star-active</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M8.79542734,21.0361106 C7.32817258,21.8074921 5.61330771,20.5615698 5.89352844,18.9277576 L6.60103886,14.8026553 L3.60397662,11.8812417 C2.41694258,10.7241695 3.07196267,8.70822492 4.71240337,8.46985493 L8.85424152,7.86801062 L10.7065278,4.11486858 C11.4401552,2.62837714 13.5598448,2.62837714 14.2934722,4.11486858 L16.1457585,7.86801062 L20.2875966,8.46985493 C21.9280373,8.70822492 22.5830574,10.7241695 21.3960234,11.8812417 L18.3989611,14.8026553 L19.1064716,18.9277576 C19.3866923,20.5615698 17.6718274,21.8074921 16.2045727,21.0361106 L12.5,19.0885015 L8.79542734,21.0361106 Z" id="path-1"></path>
+    </defs>
+    <g id="ui/icon/star-active" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Path" fill="#FF5A5F" fill-rule="nonzero" xlink:href="#path-1"></use>
+        <g id="colors/lead" mask="url(#mask-2)" fill="#FF5A5F">
+            <rect x="0" y="0" width="25" height="25"></rect>
+        </g>
+    </g>
+</svg>

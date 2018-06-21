@@ -69,6 +69,7 @@ export type SearchBarType = {
     <div class='subscribe-button' *ngIf='allowSubscribe'>
         <budgetkey-subscription-manager [externalUrl]='externalUrl' 
                                         [externalTitle]='externalTitle'
+                                        [externalProperties]='externalProperties'
         ></budgetkey-subscription-manager>
     </div>
 
@@ -331,8 +332,10 @@ export class BudgetKeySearchBar implements OnChanges {
     @Input('isSearching') isSearching: boolean;
     @Input('instantSearch') instant: boolean;
     @Input('allowSubscribe') allowSubscribe: boolean = false;
+    
     @Input('externalTitle') externalTitle: string;
     @Input('externalUrlParams') externalUrlParams: string;
+    @Input('externalProperties') externalProperties: any;
 
     @Output('selected') onSelect = new EventEmitter<any>();
     @Output('search') onSearch = new EventEmitter<string>();

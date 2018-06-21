@@ -15,6 +15,7 @@ import { SEARCHES_LIST } from '../constants';
 export class BudgetKeySubscriptionManager {
     @Input('externalUrl') externalUrl: string;
     @Input('externalTitle') externalTitle: string;
+    @Input('externalProperties') externalProperties: any;
 
     private isLoggedIn: boolean;
     private subscribedUrls = {};
@@ -36,6 +37,7 @@ export class BudgetKeySubscriptionManager {
             let item = new ListItem();
             item.url = this.externalUrl;
             item.title = this.externalTitle;
+            item.properties = this.externalProperties;
             this.lists.put(SEARCHES_LIST, item)
                         .subscribe((added) => {
                         this.subscribedUrls[item.url] = item.id;
