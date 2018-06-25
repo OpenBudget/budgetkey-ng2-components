@@ -66,7 +66,7 @@ import { ListsService } from './services/lists.service';
             name: 'העברות תקציביות',
             placeholder: 'חפשו פרטים על העברות תקציביות...',
             id: 'national-budget-changes',
-            rid: ['nationalbudgetchanges']
+            rid: ['national-budget-changes']
           },
           {
             name: 'תמיכות והעברות',
@@ -78,7 +78,7 @@ import { ListsService } from './services/lists.service';
             name: 'מכרזים והתקשרויות',
             placeholder: 'חפשו פרטים על מכרזים, פשטורים ממכרז והתקשרויות ממשלתיות...',
             id: 'tenders,contract-spending',
-            rid: ['tenders', 'contractspending']
+            rid: ['tenders', 'contract-spending']
           }
         ],
         footerLinks: [
