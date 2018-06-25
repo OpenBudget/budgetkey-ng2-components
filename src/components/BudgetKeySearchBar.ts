@@ -8,6 +8,7 @@ export type SearchBarType = {
         main?: boolean,
         placeholder?: string,
         defaultTerm?: string,
+        filters?: any
 };
 
 
