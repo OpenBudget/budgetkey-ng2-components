@@ -73,33 +73,39 @@ export class AppComponent {
     {
       name: 'רכבות',
       id: 'trains',
+      types: ['trains'],
       amount: null,
     },
     {
       name: 'מכוניות',
       id: 'cars',
+      types: ['cars'],
       amount: 10,
     },
     {
       name: 'סוסים',
       id: 'horses',
       amount: 0,
+      types: ['horses'],
       main: true
     },
     {
       name: 'אוטובוסים',
       id: 'buses',
+      types: ['buses'],
       amount: 1000,
     },
     {
       name: 'נמלים',
       id: 'ports',
+      types: ['ports'],
       defaultTerm: 'נמל אשדוד',
       amount: 1000000,
     },
     {
       name: 'מטוסים',
       id: 'plains',
+      types: ['plains'],
       placeholder: 'איזה מטוס שבא לכם',
       amount: 100000,
     },
@@ -117,7 +123,7 @@ export class AppComponent {
                            'properties': {
                              'term': 'intel',
                              'period': 'alltime',
-                             'docTypes': 'entities'
+                             'sbt': {'id': 'entities', 'name': 'עמותות'}
                            }
                           })
          .subscribe((result) => {

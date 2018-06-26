@@ -43,42 +43,42 @@ import { ListsService } from './services/lists.service';
         searchPlaceholder: "חפשו הכל... סעיף תקציבי, ארגון, אדם או כל דבר אחר העולה על דעתכם..",
         searchBarConfig: [
           {
+            id: 'all',
             name: 'הכל',
+            types: ['all'],
             placeholder: 'חפשו הכל... סעיף תקציבי, ארגון, אדם או כל דבר אחר העולה על דעתכם...',
             main: true,
-            id: 'all',
-            rid: []
           },
           {
-            name: 'סעיפים תקציביים',
-            placeholder: 'חפשו שמות של סעיפים ותקנות תקציביות...',
-            defaultTerm: 'משרד',
             id: 'budget',
-            rid: ['budget']
+            name: 'סעיפים תקציביים',
+            types: ['budget'],
+            placeholder: 'חפשו שמות של סעיפים ותקנות תקציביות...',
+            defaultTerm: 'משרד'
           },
           {
-            name: 'ארגונים',
-            placeholder: 'חפשו פרטים של חברות, עמותות וארגונים אחרים...',
             id: 'entities',
-            rid: ['entities']
+            name: 'ארגונים',
+            types: ['entities'],
+            placeholder: 'חפשו פרטים של חברות, עמותות וארגונים אחרים...',
           },
           {
-            name: 'העברות תקציביות',
-            placeholder: 'חפשו פרטים על העברות תקציביות...',
             id: 'national-budget-changes',
-            rid: ['national-budget-changes']
+            name: 'העברות תקציביות',
+            types: ['national-budget-changes'],
+            placeholder: 'חפשו פרטים על העברות תקציביות...',
           },
           {
-            name: 'תמיכות והעברות',
-            placeholder: 'חפשו פרטים על תמיכות תקציביות...',
             id: 'supports',
-            rid: ['supports']
+            name: 'תמיכות והעברות',
+            types: ['supports'],
+            placeholder: 'חפשו פרטים על תמיכות תקציביות...',
           },
           {
+            id: 'procurement',
             name: 'מכרזים והתקשרויות',
+            types: ['tenders', 'contract-spending'],
             placeholder: 'חפשו פרטים על מכרזים, פשטורים ממכרז והתקשרויות ממשלתיות...',
-            id: 'tenders,contract-spending',
-            rid: ['tenders', 'contract-spending']
           }
         ],
         footerLinks: [

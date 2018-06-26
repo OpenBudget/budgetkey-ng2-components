@@ -2,9 +2,10 @@ import {Component, Inject, Input, Output, EventEmitter, OnChanges} from '@angula
 import {THEME_TOKEN} from '../constants';
 
 export type SearchBarType = {
-        name: string, 
-        amount: number,
         id: string,
+        name: string, 
+        types: string[],
+        amount: number,
         main?: boolean,
         placeholder?: string,
         defaultTerm?: string,
