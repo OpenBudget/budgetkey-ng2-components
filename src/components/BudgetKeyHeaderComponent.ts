@@ -16,14 +16,12 @@ import {THEME_TOKEN} from '../constants';
                      [href]="theme.siteUrl"></a>
                 </div>
 
-                <div class="navbar" id="bs-example-navbar-collapse-1">
                   <div *ngIf="showSearchBar" class="search-div col-xs-7">
                     <budgetkey-search-bar (navigate)="doSearch($event)"></budgetkey-search-bar>
                   </div>
                   <div class="auth-widget col-xs-3">
                     <budgetkey-ng2-auth></budgetkey-ng2-auth>
                   </div>
-                </div>
               </div>
             </nav>
           </header>
