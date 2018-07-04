@@ -1,15 +1,29 @@
 import {Component, Inject, Input, Output, EventEmitter, OnChanges} from '@angular/core';
 import {THEME_TOKEN} from '../constants';
 
+export class FilterOption {
+    id: string;
+    display: string;
+    filters?: any;
+}
+
+export class FilterMenu {
+    id: string;
+    display: string;
+    options: FilterOption[];
+    selected?: FilterOption = null;
+}
+
 export type SearchBarType = {
-        id: string,
-        name: string, 
-        types: string[],
-        amount: number,
-        main?: boolean,
-        placeholder?: string,
-        defaultTerm?: string,
-        filters?: any
+    id: string,
+    name: string, 
+    types: string[],
+    amount: number,
+    main?: boolean,
+    placeholder?: string,
+    defaultTerm?: string,
+    filters?: any,
+    filterMenu?: FilterMenu[]
 };
 
 

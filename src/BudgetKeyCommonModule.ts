@@ -61,6 +61,46 @@ import { ListsService } from './services/lists.service';
             name: 'ארגונים',
             types: ['entities'],
             placeholder: 'חפשו פרטים של חברות, עמותות וארגונים אחרים...',
+            filterMenu: [
+              {
+                id: 'entity_kind',
+                display: 'סוג הארגון',
+                options: [
+                  {
+                    id: 'all',
+                    display: 'כל סוגי הארגונים'
+                  },
+                  {
+                    id: 'companies',
+                    display: 'חברות',
+                    filters: {
+                      kind: 'company'
+                    }
+                  },
+                  {
+                    id: 'associations',
+                    display: 'עמותות וחל״צ',
+                    filters: {
+                      kind: 'association'
+                    }
+                  },
+                  {
+                    id: 'municipalities',
+                    display: 'רשויות מקומיות',
+                    filters: {
+                      kind: 'municipality'
+                    }
+                  },
+                  {
+                    id: 'other',
+                    display: 'ארגונים אחרים',
+                    filters: {
+                      kind__not: ['company', 'association', 'municipality']
+                    }
+                  }
+                ]
+              }
+            ]
           },
           {
             id: 'national-budget-changes',
@@ -79,6 +119,41 @@ import { ListsService } from './services/lists.service';
             name: 'מכרזים והתקשרויות',
             types: ['tenders', 'contract-spending'],
             placeholder: 'חפשו פרטים על מכרזים, פשטורים ממכרז והתקשרויות ממשלתיות...',
+            filterMenu: [
+              {
+                id: 'tender_type',
+                display: 'סוג התהליך',
+                options: [
+                  {
+                    id: 'all',
+                    display: 'הכל'
+                  },
+                  {
+                    id: 'tenders',
+                    display: 'מכרזים',
+                    filters: {
+                      _type: 'tenders',
+                      tender_type: ['office', 'central']
+                    }
+                  },
+                  {
+                    id: 'exemptions',
+                    display: 'בקשות פטור ממכרז',
+                    filters: {
+                      _type: 'tenders',
+                      tender_type: ['exemptions']
+                    }
+                  },
+                  {
+                    id: 'contracts',
+                    display: 'התקשרויות',
+                    filters: {
+                      _type: 'contract-spending',
+                    }
+                  },
+                ]
+              }
+            ]
           }
         ],
         footerLinks: [
