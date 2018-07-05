@@ -99,6 +99,38 @@ import { ListsService } from './services/lists.service';
                     }
                   }
                 ]
+              },
+              {
+                "id": "public_funds",
+                "display": "כספי מדינה",
+                "options": [
+                  {
+                    "id": "all",
+                    "display": "ללא הגבלה"
+                  },
+                  {
+                    "id": "supported",
+                    "display": "קיבלו תמיכה ממשלתית",
+                    "filters": {
+                      "received_amount_supports__gt": 0
+                    }
+                  },
+                  {
+                    "id": "contracted",
+                    "display": "סיפקו שירותים לממשלה",
+                    "filters": {
+                      "received_amount_contracts__gt": 0
+                    }
+                  },
+                  {
+                    "id": "both",
+                    "display": "גם וגם",
+                    "filters": {
+                      "received_amount_supports__gt": 0,
+                      "received_amount_contracts__gt": 0
+                    }
+                  }
+                ]
               }
             ]
           },
