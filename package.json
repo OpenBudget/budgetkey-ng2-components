@@ -1,6 +1,6 @@
 {
   "name": "budgetkey-ng2-components",
-  "version": "0.2.26",
+  "version": "0.2.27",
   "description": "Common Components for BudgetKey",
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -55,12 +55,14 @@
     "@angular/platform-browser-dynamic": "^5.2.9",
     "@angular/platform-server": "^5.2.9",
     "@angular/router": "^5.2.9",
+    "@types/node": "^10.5.2",
     "bootstrap": "^3.3.7",
     "bootstrap-rtl": "^3.3.4",
     "budgetkey-ng2-auth": "^0.1.5",
     "core-js": "^2.5.1",
     "reflect-metadata": "^0.1.10",
     "rxjs": "^5.5.8",
+    "smooch": "^4.12.9",
     "zone.js": "^0.6.26"
   }
 }

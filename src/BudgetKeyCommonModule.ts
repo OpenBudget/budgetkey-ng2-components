@@ -209,6 +209,10 @@ import { ListsService } from './services/lists.service';
             href: 'https://github.com/OpenBudget/BudgetKey/blob/master/documentation/UsingTheAPI.md',
             title: 'API'
           },
+          {
+            href: 'https://old.obudget.org',
+            title: 'האתר הישן'
+          },
         ],
         supporterInfos: {
             eu: {
