@@ -13,11 +13,17 @@ import {THEME_TOKEN} from '../constants';
                   </button>
                   <a class="navbar-brand"
                      [style.background-image]="'url(assets/img/' + theme.siteLogo + ')'"
-                     [href]="theme.siteUrl"></a>
+                     [href]="theme.siteUrl">
+                  </a>
                 </div>
 
                   <div *ngIf="showSearchBar" class="search-div col-xs-7">
                     <budgetkey-search-bar (navigate)="doSearch($event)"></budgetkey-search-bar>
+                  </div>
+                  <div class="menu-links col-xs-1">
+                    <a href="https://www.jgive.com/new/he/ils/donation-targets/3268#donation-modal">
+                       תרמו לנו
+                    </a>
                   </div>
                   <div class="auth-widget col-xs-3">
                     <budgetkey-ng2-auth></budgetkey-ng2-auth>
