@@ -4,32 +4,23 @@ import {THEME_TOKEN} from '../constants';
 @Component({
     selector: 'budgetkey-header',
     template: `
-          <header class="site-nav">
-            <nav class="navbar navbar-default" role="navigation">
-              <div>
-                <div>
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                  </button>
-                  <a class="navbar-brand"
-                     [style.background-image]="'url(assets/img/' + theme.siteLogo + ')'"
-                     [href]="theme.siteUrl">
-                  </a>
-                </div>
-
-                  <div *ngIf="showSearchBar" class="search-div col-xs-7">
-                    <budgetkey-search-bar (navigate)="doSearch($event)"></budgetkey-search-bar>
-                  </div>
-                  <div class="menu-links col-xs-1">
-                    <a href="https://www.jgive.com/new/he/ils/donation-targets/3268#donation-modal">
-                       תרמו לנו
-                    </a>
-                  </div>
-                  <div class="auth-widget col-xs-3">
-                    <budgetkey-ng2-auth></budgetkey-ng2-auth>
-                  </div>
-              </div>
-            </nav>
+          <header>
+            <div class="logo">
+              <a [href]="theme.siteUrl">
+                <img [src]="'assets/img/' + theme.siteLogo"/>
+              </a>
+            </div>
+            <div *ngIf="showSearchBar" class="search-div">
+              <budgetkey-search-bar (navigate)="doSearch($event)"></budgetkey-search-bar>
+            </div>
+            <div class="menu-links" *ngIf='theme.headerLinks'>
+              <ng-container *ngFor="let link of theme.headerLinks">
+                <a [href]="link.href" [innerHtml]='link.title'></a>
+              </ng-container>
+            </div>
+            <div class="auth-widget">
+              <budgetkey-ng2-auth></budgetkey-ng2-auth>
+            </div>
           </header>
     `,
     styles: [`

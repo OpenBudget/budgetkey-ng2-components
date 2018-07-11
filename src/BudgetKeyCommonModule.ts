@@ -188,6 +188,16 @@ import { ListsService } from './services/lists.service';
             ]
           }
         ],
+        headerLinks: [
+          {
+            href: "http://www.hasadna.org.il/%D7%9E%D7%A4%D7%AA%D7%97-%D7%94%D7%AA%D7%A7%D7%A6%D7%99%D7%91/",
+            title: 'מי אנחנו'
+          },
+          {
+            href: "https://www.jgive.com/new/he/ils/donation-targets/3268#donation-modal",
+            title: 'תרמו לנו'
+          },
+        ],
         footerLinks: [
           {
             href: 'mailto:info@hasadna.org.il',
