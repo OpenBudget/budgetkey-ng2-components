@@ -13,7 +13,7 @@ import {THEME_TOKEN} from '../constants';
             <div *ngIf="showSearchBar" class="search-div">
               <budgetkey-search-bar (navigate)="doSearch($event)"></budgetkey-search-bar>
             </div>
-            <div class="menu-links" *ngIf='theme.headerLinks'>
+            <div class="menu-links">
               <ng-container *ngFor="let link of theme.headerLinks">
                 <a [href]="link.href" [innerHtml]='link.title'></a>
               </ng-container>
