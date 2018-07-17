@@ -61,7 +61,7 @@ export class BudgetKeyFooterComponent {
         Smooch.init({
             appId: '579deb5e8975e33e008f7067',
             customText: {
-              headerText: 'אפשר לעזור?',
+              headerText: '?אפשר לעזור',
               inputPlaceholder: 'כתבו לנו הודעה...',
               sendButtonText: 'לשלוח',
               introductionText: 'אתם מוזמנים לשאול אותנו הכל ומישהו' +
