@@ -49,12 +49,12 @@ export class BudgetKeySubscriptionManager {
         this.auth.getUser()
             .subscribe((user) => {
                 this.isLoggedIn = user && user.authenticated;
-            });
-        this.lists.get(SEARCHES_LIST)
-            .subscribe((lc: ListContents) => {
-                for (let item of lc.items) {
-                    this.subscribedUrls[item.url] = item.id;
-                }
+                this.lists.get(SEARCHES_LIST)
+                    .subscribe((lc: ListContents) => {
+                        for (let item of lc.items) {
+                            this.subscribedUrls[item.url] = item.id;
+                        }
+                    });
             });
     }
 }
