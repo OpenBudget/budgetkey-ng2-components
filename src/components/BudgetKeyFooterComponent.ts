@@ -1,6 +1,5 @@
 import {Component, Inject} from '@angular/core';
 import {THEME_TOKEN} from '../constants';
-const Smooch: any = require('smooch');
 
 @Component({
     selector: 'budgetkey-footer',
@@ -8,7 +7,7 @@ const Smooch: any = require('smooch');
         <footer class="footer">
             <div class="links">
                 <div class="link" *ngFor="let link of theme.footerLinks">
-                    <a [href]="link.href" [innerHtml]="link.title"></a>
+                    <a i18n="@@footerlinks" [href]="link.href" [innerHtml]="link.title"></a>
                 </div>
             </div>
             <div class="hasadna"
@@ -29,7 +28,7 @@ const Smooch: any = require('smooch');
             </div>
             <div class="supporters" *ngIf="theme.supporters">
                 <div class="supporter">
-                    <span class="supporterText">
+                    <span i18n="@@supportertext" class="supporterText">
                         אנו מכירים תודה לעשרות המתנדבים<br/>
                         אשר תרמו ממרצם וזמנם לפיתוח האתר.<br/><br/>                    
                         ובנוסף לתמיכתם האדיבה של &larr;
@@ -46,31 +45,15 @@ const Smooch: any = require('smooch');
                 </div>
             </div>   
             <div class="eu-disclaimer" *ngIf="theme.euDisclaimer">
-                <span>
+                <span i18n="@@disclaimer">
                     This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the Public Knowledge Workshop and do not necessarily reflect the views of the European Union.
                 </span>
             </div>
         </footer>
     `
 })
+
 export class BudgetKeyFooterComponent {
     public hasadnaUrl = 'http://www.hasadna.org.il/';
     constructor (@Inject(THEME_TOKEN) private theme: any) { }
-
-    ngOnInit() {
-        Smooch.init({
-            appId: '579deb5e8975e33e008f7067',
-            customText: {
-              headerText: '?אפשר לעזור',
-              inputPlaceholder: 'כתבו לנו הודעה...',
-              sendButtonText: 'לשלוח',
-              introductionText: 'אתם מוזמנים לשאול אותנו הכל ומישהו' +
-                ' מצוות המתנדבים שלנו ישתדל לענות כמה שיותר מהר. ' +
-                'מכיוון שאנו לא תמיד זמינים, אתם מוזמנים להשאיר לנו ' +
-                'גם כתובת מייל בכדי שנוכל לחזור אליכם כשנראה את ההודעה.',
-            },
-        }).then(() => {
-            console.log('Smooch init');              
-        });
-    }
 }
