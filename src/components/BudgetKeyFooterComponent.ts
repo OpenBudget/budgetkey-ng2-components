@@ -8,7 +8,7 @@ const Smooch: any = require('smooch');
         <footer class="footer">
             <div class="links">
                 <div class="link" *ngFor="let link of theme.footerLinks">
-                    <a i18n="@@footerlinks" [href]="link.href" [innerHtml]="link.title"></a>
+                    <a [href]="link.href" [innerHtml]="link.title"></a>
                 </div>
             </div>
             <div class="hasadna"
