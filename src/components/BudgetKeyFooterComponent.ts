@@ -1,5 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {THEME_TOKEN} from '../constants';
+const Smooch: any = require('smooch');
 
 @Component({
     selector: 'budgetkey-footer',
