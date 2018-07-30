@@ -29,7 +29,7 @@ const Smooch: any = require('smooch');
             </div>
             <div class="supporters" *ngIf="theme.supporters">
                 <div class="supporter">
-                    <span class="supporterText">
+                    <span i18n="@@supportertext" class="supporterText">
                         אנו מכירים תודה לעשרות המתנדבים<br/>
                         אשר תרמו ממרצם וזמנם לפיתוח האתר.<br/><br/>                    
                         ובנוסף לתמיכתם האדיבה של &larr;
@@ -46,7 +46,7 @@ const Smooch: any = require('smooch');
                 </div>
             </div>   
             <div class="eu-disclaimer" *ngIf="theme.euDisclaimer">
-                <span>
+                <span i18n="@@disclaimer">
                     This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the Public Knowledge Workshop and do not necessarily reflect the views of the European Union.
                 </span>
             </div>
