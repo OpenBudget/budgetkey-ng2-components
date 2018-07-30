@@ -60,6 +60,7 @@ export class BudgetKeyFooterComponent {
     ngOnInit() {
         Smooch.init({
             appId: '579deb5e8975e33e008f7067',
+            displayStyle: "button",
             customText: {
               headerText: '?אפשר לעזור',
               inputPlaceholder: 'כתבו לנו הודעה...',
