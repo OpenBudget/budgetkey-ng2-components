@@ -19,7 +19,7 @@ import {THEME_TOKEN} from '../constants';
               </ng-container>
             </div>
             <div class="auth-widget">
-              <budgetkey-ng2-auth></budgetkey-ng2-auth>
+              <budgetkey-ng2-auth [theme]='theme'></budgetkey-ng2-auth>
             </div>
           </header>
     `,
