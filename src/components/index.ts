@@ -5,3 +5,4 @@ export * from './BudgetKeySearchBar';
 export * from './BudgetKeyTooltipDirective';
 export * from './BudgetKeySubscribeStar';
 export * from './BudgetKeySubscriptionManager';
+export * from './ModalComponent';

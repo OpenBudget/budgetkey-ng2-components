@@ -1,6 +1,6 @@
 {
   "name": "budgetkey-ng2-components",
-  "version": "0.2.38",
+  "version": "0.2.39",
   "description": "Common Components for BudgetKey",
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -63,6 +63,7 @@
     "reflect-metadata": "^0.1.10",
     "rxjs": "^5.5.8",
     "smooch": "^4.12.9",
+    "tslint": "^5.11.0",
     "zone.js": "^0.6.26"
   }
 }

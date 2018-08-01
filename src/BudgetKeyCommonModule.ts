@@ -8,7 +8,8 @@ import { AppContainerComponent,
          BudgetKeySearchBar, 
          BudgetKeyTooltipDirective,
          BudgetKeySubscribeStar,
-         BudgetKeySubscriptionManager}  from './components';
+         BudgetKeySubscriptionManager,
+         ModalComponent}  from './components';
 
 import { THEME_TOKEN } from './constants';
 
@@ -32,6 +33,7 @@ import { ListsService } from './services/lists.service';
     BudgetKeyTooltipDirective,
     BudgetKeySubscribeStar,
     BudgetKeySubscriptionManager,
+    ModalComponent,
   ],
   providers: [
     ListsService,
@@ -259,6 +261,7 @@ This Project is funded by the European Union<br/>
     BudgetKeyTooltipDirective,
     BudgetKeySubscribeStar,
     BudgetKeySubscriptionManager,
+    ModalComponent,
   ]
 })
 export class BudgetKeyCommonModule { }

@@ -24,6 +24,11 @@ declare const process: any;
       </div>
       <pre>{{searchTerm}}</pre>
       <a [href]="href">{{href}}</a>
+      <button (click)='modal = true;'>הצג את המודל</button>
+      <modal title='המודל של אורטל' (close)='modal = false;' *ngIf='modal'>
+        <h1>זהו זהו המודל</h1>
+        <h1>המודל - של אורטל</h1>
+      </modal>
       <div>
         זאת הדגמה פשוטה של
         <span [bkTooltip]="'הודעה שמסבירה מהו הדבר עליו עומדים'">
@@ -69,6 +74,8 @@ export class AppComponent {
    על הארגונים והעמותות הפועלים בישראל ועל מידת המעורבות והתמיכה הממשלתית בפעילותם
   `;
 
+  private modal = false;
+  
   public types: SearchBarType[] = [
     {
       name: 'רכבות',
@@ -140,6 +147,7 @@ export class AppComponent {
             this.profile = user.profile;
           } else {
             this.profile = {};
+            this.items = [];
           }
         });
   }

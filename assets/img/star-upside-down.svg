@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="76px" height="74px" viewBox="0 0 76 74" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51 (57462) - http://www.bohemiancoding.com/sketch -->
+    <title>8B0D96F8-BA05-4C3E-977E-93F3C59EED49</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M35.1817094,84.1444424 C29.3126903,87.2299683 22.4532308,82.2462793 23.5741137,75.7110305 L26.4041554,59.2106214 L14.4159065,47.5249667 C9.66777032,42.8966779 12.2878507,34.8328997 18.8496135,33.8794197 L35.4169661,31.4720425 L42.8261114,16.4594743 C45.7606209,10.5135086 54.2393791,10.5135086 57.1738886,16.4594743 L64.5830339,31.4720425 L81.1503865,33.8794197 C87.7121493,34.8328997 90.3322297,42.8966779 85.5840935,47.5249667 L73.5958446,59.2106214 L76.4258863,75.7110305 C77.5467692,82.2462793 70.6873097,87.2299683 64.8182906,84.1444424 L50,76.3540059 L35.1817094,84.1444424 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="search-login-notice" transform="translate(-603.000000, -269.000000)">
+            <rect fill="#FAFAFA" x="0" y="0" width="1280" height="900"></rect>
+            <g id="Group-3" transform="translate(410.000000, 178.000000)">
+                <g id="ui/icon/star-active" transform="translate(231.000000, 127.000000) scale(1, -1) translate(-231.000000, -127.000000) translate(181.000000, 77.000000)">
+                    <rect id="Background" x="0" y="0" width="100" height="100"></rect>
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Path" fill="#FF5A5F" fill-rule="nonzero" xlink:href="#path-1"></use>
+                    <g id="background" mask="url(#mask-2)">
+                        <rect id="Background" x="0" y="0" width="100" height="100"></rect>
+                        <rect id="colors/lead" fill="#FF5A5F" x="0" y="0" width="100" height="100"></rect>
+                    </g>
+                </g>
+                <!-- <text x='222' y='138' font-size='42' 
+                	  font-family="Miriam Libre"
+                      font-weight="bold"
+                      fill='#fff'>?</text> -->
+            </g>
+        </g>
+    </g>
+</svg>
