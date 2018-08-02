@@ -192,8 +192,12 @@ import { ListsService } from './services/lists.service';
         ],
         headerLinks: [
           {
-            href: "http://www.hasadna.org.il/%D7%9E%D7%A4%D7%AA%D7%97-%D7%94%D7%AA%D7%A7%D7%A6%D7%99%D7%91/",
+            href: "/about/",
             title: 'מי אנחנו'
+          },
+          {
+            href: "http://www.hasadna.org.il/%D7%9E%D7%A4%D7%AA%D7%97-%D7%94%D7%AA%D7%A7%D7%A6%D7%99%D7%91/",
+            title: 'הסדנא'
           },
           {
             href: "https://www.jgive.com/new/he/ils/donation-targets/3268#donation-modal",
@@ -202,20 +206,12 @@ import { ListsService } from './services/lists.service';
         ],
         footerLinks: [
           {
-            href: 'mailto:info@hasadna.org.il',
-            title: 'צרו קשר'
+            href: '/about',
+            title: 'אודות'
           },
           {
-            href: 'https://forum.hasadna.org.il/c/eknights/obudget',
-            title: 'דווחו על תקלה'
-          },
-          {
-            href: 'https://github.com/OpenBudget/BudgetKey',
-            title: 'קוד האתר'
-          },
-          {
-            href: 'https://forum.hasadna.org.il/c/eknights/obudget',
-            title: 'קבוצת הדיון שלנו'
+            href: '/about#team',
+            title: 'הצוות'
           },
           {
             href: 'https://github.com/OpenBudget/BudgetKey/blob/master/documentation/UsingTheAPI.md',
@@ -225,31 +221,23 @@ import { ListsService } from './services/lists.service';
             href: 'https://old.obudget.org',
             title: 'האתר הישן'
           },
+          {
+            href: 'mailto:info@hasadna.org.il',
+            title: 'צרו קשר'
+          },
+          {
+            href: 'https://github.com/OpenBudget/BudgetKey/issues/new',
+            title: 'דווחו על תקלה'
+          },
+          {
+            href: 'https://www.jgive.com/new/he/ils/donation-targets/3268#donation-modal',
+            title: 'מדיניות פרטיות'
+          },
+          {
+            href: '/about#privacy',
+            title: 'תרמו לנו'
+          },
         ],
-        supporterInfos: {
-            eu: {
-              name: 'האיחוד האירופי',
-              logo: 'eu.svg',
-              url: 'https://europa.eu/european-union/index_en',
-              text: `
-This Project is funded by the European Union<br/>
-פרויקט זה מתבצע במימון האיחוד האירופי<br/>
-هذا المشروع ممول من قبل الاتحاد الأوروبي `,
-            },
-            midot: {
-              name: 'מידות',
-              logo: 'midot.svg',
-              url: 'http://www.midot.org.il/',
-            },
-            migdal: {
-              name: 'מגדל',
-              logo: 'migdal.svg',
-              url: 'https://www.migdal.co.il/He/MigdalTeam/social_involvment_migdal/Pages/social_inv.aspx',
-            },
-
-        },
-        supporters: ['eu', 'midot', 'migdal'],
-        euDisclaimer: true
       }
     }
   ],
