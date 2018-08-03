@@ -230,11 +230,11 @@ import { ListsService } from './services/lists.service';
             title: 'דווחו על תקלה'
           },
           {
-            href: 'https://www.jgive.com/new/he/ils/donation-targets/3268#donation-modal',
+            href: '/about#privacy',
             title: 'מדיניות פרטיות'
           },
           {
-            href: '/about#privacy',
+            href: 'https://www.jgive.com/new/he/ils/donation-targets/3268#donation-modal',
             title: 'תרמו לנו'
           },
         ],

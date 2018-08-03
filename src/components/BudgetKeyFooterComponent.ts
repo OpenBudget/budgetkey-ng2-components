@@ -23,8 +23,10 @@ const Smooch: any = require('smooch');
                 <p>
                     <img src='assets/img/cc-by-sa.svg'>
                     <span>על רוב תוכן האתר חל רישיון</span>
-                    <a href="">CC BY-SA 4.0 של Creative Commons</a>
-                    <span>, אלא אם כן צויין אחרת.</span>
+                    <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 של Creative Commons</a>
+                    <span>, אלא אם כן 
+                    <a [href]='about("licenses")'>צויין אחרת</a>
+                    .</span>
                 </p>
                 <p>
                     <span>
