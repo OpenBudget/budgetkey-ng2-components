@@ -61,11 +61,12 @@ export class ListsService {
   }
 
   public delete(list: string, item_id: number): Observable<boolean> {
+    const _item_id = item_id ? item_id : 'all';
     return this.token
                .filter((token) => token !== null)
                .switchMap((token) => {
                  return this.http.delete('https://next.obudget.org/list?list=' + encodeURIComponent(list) +
-                                         '&item_id=' + item_id +
+                                         '&item_id=' + _item_id +
                                          '&jwt=' + token);
                })
                .map((response) => response.json())
