@@ -159,6 +159,7 @@ a.activeclass {
 .drop-down-caret{
   margin-right: 6px; 
   margin-left: 11px;
+  cursor: pointer;
 }
 
 .outer-right-side{
