@@ -18,17 +18,20 @@ import {THEME_TOKEN} from '../constants';
                 <a [href]="link.href" [innerHtml]='link.title'></a>
               </ng-container>
             </div>
+            <div class="collapsed-menu">
+              <i class="glyphicon glyphicon-menu-hamburger"></i>
+              <div class='menu'>
+                <ng-container *ngFor="let link of theme.headerLinks">
+                  <span class='menu-line' (click)="navigate(link.href)" [innerHtml]='link.title'></span>
+                </ng-container>
+              </div>
+            </div>
             <div class="auth-widget">
               <budgetkey-ng2-auth [theme]='theme'></budgetkey-ng2-auth>
             </div>
           </header>
     `,
-    styles: [`
-
-    ::ng-deep .search-box {
-      margin: 5px !important;
-    }
-    `]
+    styles: []
 })
 
 export class BudgetKeyHeaderComponent {
@@ -38,5 +41,9 @@ export class BudgetKeyHeaderComponent {
 
     doSearch(href: string) {
         window.open(href, '_self');
+    }
+
+    navigate(href: string) {
+        window.open(href, '_blank');
     }
 }
