@@ -24,6 +24,7 @@ header {
   div.search-div{
     margin-right: 5%;
     padding: 0;
+    flex: 1;
 
     .search-box {
       margin: 5px !important;
@@ -43,12 +44,29 @@ header {
     }
   }
 
+  div.collapsed-search {
+    display: none;
+    margin-right: auto;
+    width: 34px;
+    height: 34px;
+    border-radius: 17px;
+    background-color: #FF5A5F;
+    text-align: center;
+    line-height: 34px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
   div.collapsed-menu {
     display: none;
     position: relative;
     margin-right: auto;
     margin-left: 10px;
     cursor: pointer;
+
+    &.with-search {
+      margin-right: 10px;
+    }
 
     &:hover .menu {
       display: flex;
@@ -111,8 +129,13 @@ header {
     }
     div.collapsed-menu {
       display: inherit;
+      flex-grow: 0;
     }
-    div.search-box {
+    div.collapsed-search {
+      display: block;
+      flex-grow: 0;
+    }
+    div.search-div {
       display: none;
     }
   }

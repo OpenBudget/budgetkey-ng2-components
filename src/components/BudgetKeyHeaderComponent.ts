@@ -18,7 +18,10 @@ import {THEME_TOKEN} from '../constants';
                 <a [href]="link.href" [innerHtml]='link.title'></a>
               </ng-container>
             </div>
-            <div class="collapsed-menu">
+            <div *ngIf="showSearchBar" class="collapsed-search" (click)='doSearch("//next.obudget.org/s/")'>
+              <img class="search-icon" src="assets/img/search-glass-white.svg">            
+            </div>
+            <div class="collapsed-menu" [ngClass]="{'with-search': showSearchBar}">
               <i class="glyphicon glyphicon-menu-hamburger"></i>
               <div class='menu'>
                 <ng-container *ngFor="let link of theme.headerLinks">
