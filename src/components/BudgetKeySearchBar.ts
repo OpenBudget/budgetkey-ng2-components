@@ -73,7 +73,7 @@ export type SearchBarType = {
           class="form-control roundCorners-border-left-side left-side-search"
           type="text"
           [placeholder]="selectedTab.placeholder || theme.searchPlaceholder"
-          autofocus
+          [autofocus]='!disableAutofocus'
           (keyup)="search(searchBox.value)"
           (keyup.backspace)="search(searchBox.value)"
           (keyup.enter)="navigate(searchBox.value)"
@@ -348,7 +348,7 @@ export class BudgetKeySearchBar implements OnChanges {
     @Input('selectedSearchType') selectedTab: SearchBarType;
     @Input('searchTerm') searchTerm: string;
     @Input('isSearching') isSearching: boolean;
-    @Input('instantSearch') instant: boolean;
+    @Input('disableAutofocus') disableAutofocus: boolean;
     @Input('allowSubscribe') allowSubscribe: boolean = false;
     
     @Input('externalTitle') externalTitle: string;
@@ -389,7 +389,6 @@ export class BudgetKeySearchBar implements OnChanges {
         this.searchTerm = this.searchTerm || '';
         this.selectedTab = this.selectedTab || this.tabs[0];
         this.isSearchBarHasText = this.searchTerm !== '';
-        this.instant = this.instant === true;
         this.calcExternalUrl();
     }
 
