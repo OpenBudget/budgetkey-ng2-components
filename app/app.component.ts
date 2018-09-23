@@ -51,6 +51,26 @@ declare const process: any;
       <div>
         יש כאן עוד טקסט סתם כי בא לי. {{profile['name']}}
       </div>
+      <div style='text-align: left;'>
+        זהו טולטיפ ידני עם טקסט די 
+        <span class='bk-tooltip-anchor'>ארוך
+        <span class='bk-tooltip bk-align-left'>
+        יש לי שיר שמעצבן אנשים.
+        יש לי שיר שמעצבן אנשים.
+        יש לי שיר שמעצבן אנשים.
+        יש לי שיר שמעצבן אנשים.
+        יש לי שיר שמעצבן אנשים.
+        יש לי שיר שמעצבן אנשים.
+        יש לי שיר שמעצבן אנשים.
+        יש לי שיר שמעצבן אנשים.
+        יש לי שיר שמעצבן אנשים.
+        יש לי שיר שמעצבן אנשים.
+        יש לי שיר שמעצבן אנשים.
+        יש לי שיר שמעצבן אנשים.
+        יש לי שיר שמעצבן אנשים.
+        </span>
+        </span>
+      </div>
       <div>
         <ng-container *ngIf='items'>
           <div *ngFor='let item of items'>

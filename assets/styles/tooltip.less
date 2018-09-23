@@ -38,6 +38,13 @@
         text-align: justify;
         font-family: "Abraham TRIAL", "Alef Hebrew", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 
+        @media only screen and (max-width: 600px)  {
+            width: 150px;
+            font-size: 10px;
+            line-height: 12px;
+            padding: 5px;
+        }
+
         &:after {
             content: '';
             position: absolute;
@@ -49,6 +56,13 @@
             border-right: 5px solid transparent;
             border-left: 5px solid transparent;        
         }
+        
+        &.bk-align-left {        
+            &:after {
+                left: 5%;
+            }
+        }
+
     }
 
     &:hover .bk-tooltip {
@@ -58,5 +72,13 @@
         left: 50%;
         margin-left: -280px;
         z-index: 999;    
+
+        @media only screen and (max-width: 600px)  {
+            margin-left: -140px;
+        }
+
+        &.bk-align-left {        
+            margin-left: -10px;
+        }
     }
 }
