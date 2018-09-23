@@ -400,7 +400,9 @@ export class BudgetKeySearchBar implements OnChanges, AfterViewInit {
 
     ngAfterViewInit() {
         if (this.searchBox.nativeElement.offsetWidth < 500) {
-            this.forcedPlaceholder = 'בואו נחפש';
+            setTimeout(() => {
+                this.forcedPlaceholder = 'בואו נחפש';
+            });
         }
     }
 
