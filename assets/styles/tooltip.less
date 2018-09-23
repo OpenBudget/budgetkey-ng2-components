@@ -54,7 +54,11 @@
             width: 0; height: 0;
             border-bottom: 5px solid #434343;
             border-right: 5px solid transparent;
-            border-left: 5px solid transparent;        
+            border-left: 5px solid transparent;
+
+            @media only screen and (max-width: 600px)  {
+                left: 50%;
+            }
         }
         
         &.bk-align-left {        
@@ -74,7 +78,7 @@
         z-index: 999;    
 
         @media only screen and (max-width: 600px)  {
-            margin-left: -140px;
+            margin-left: -75px;
         }
 
         &.bk-align-left {        
