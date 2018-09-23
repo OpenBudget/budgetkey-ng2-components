@@ -82,7 +82,7 @@ export type SearchBarType = {
           (focusout)="isSearchBarHasFocus = false"
     />
 
-    <div class='subscribe-button' *ngIf='allowSubscribe'>
+    <div class='subscribe-button' *ngIf='showSubscribe'>
         <budgetkey-subscription-manager [externalUrl]='externalUrl' 
                                         [externalTitle]='externalTitle'
                                         [externalProperties]='externalProperties'
@@ -362,9 +362,11 @@ export class BudgetKeySearchBar implements OnChanges {
     private isSearchBarHasFocus = false;
     private isSearchBarHasText = false;
     private dropdownOpen = false;
+    private showSubscribe = false;
     private externalUrl: string;
     
-    constructor (@Inject(THEME_TOKEN) private theme: any) { }
+    constructor (@Inject(THEME_TOKEN) private theme: any) { 
+    }
 
     private isNumeric(n: number) {
         return n !== null && n >= 0;
@@ -389,6 +391,7 @@ export class BudgetKeySearchBar implements OnChanges {
         this.searchTerm = this.searchTerm || '';
         this.selectedTab = this.selectedTab || this.tabs[0];
         this.isSearchBarHasText = this.searchTerm !== '';
+        this.showSubscribe = !this.theme.disableAuth && this.allowSubscribe;
         this.calcExternalUrl();
     }
 
