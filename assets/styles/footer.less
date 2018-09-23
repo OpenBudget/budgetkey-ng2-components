@@ -8,16 +8,21 @@
 }
 */
 
+budgetkey-footer {
+  background-color: #F0F0F0;
+}
+
 footer {
   padding: 0px 80px;
   border-top: 1px solid #e5e5e5;
   box-shadow: inset 0 13px 15px -15px rgba(0, 0, 0, .74);
-  background-color: #F0F0F0;
-  min-height: @footerHeight;
-  
   color: #797979;	
   font-family: "Abraham TRIAL";	
   font-size: 14px;
+
+  @media only screen and (max-width: 600px)  {
+    padding: 0px 10px;
+  }
 
   a {
     color: #797979;
@@ -35,13 +40,18 @@ footer {
     flex-flow: row;
     align-items: center;
     border-bottom: solid 1px #888;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-content: center;
 
     .link {
       display: block;
-      padding-left: 40px;
+      padding: 5px 20px;
+      white-space: nowrap;
     }
 
     .hasadna {
+      padding: 0 20px;
       margin-right: auto;
       display: flex;
       flex-flow: row;
@@ -55,19 +65,23 @@ footer {
 
     .hasadna-link {
       display: block;
+      white-space: nowrap;
     }
-  }
 
-  @media only screen and (max-width: 768px)  {
-    .top-line {
-        flex-flow: column;
-        .link {
-          padding: 0;
-        }
-        .hasadna {
-          margin-right: inherit;
-        }
+    @media only screen and (max-width: 600px)  {
+      padding: 4px 0px;
+      border-bottom: none;
+      .link {
+        min-width: 120px;
+        text-align: center;
+      }
+      .hasadna {
+        width: 100%;
+        justify-content: center;
+        padding: 10px;
+      }
     }
+  
   }
 
   .bottom-line {
@@ -87,6 +101,10 @@ footer {
       * {
         margin-right: 3px;
       }
+    }
+
+    @media only screen and (max-width: 600px)  {
+      display: none;
     }
   }
 }
