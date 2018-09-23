@@ -4,7 +4,9 @@ import {Component, ViewEncapsulation, Input} from '@angular/core';
     selector: 'budgetkey-container',
     encapsulation: ViewEncapsulation.None,
     template: `
-        <budgetkey-header *ngIf="showHeader" [showSearchBar]="showSearchBar"></budgetkey-header>
+        <budgetkey-header *ngIf="showHeader" 
+                          [showSearchBar]="showSearchBar"
+        ></budgetkey-header>
         <div class="app">
           <ng-content></ng-content>
         </div>

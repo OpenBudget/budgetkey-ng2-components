@@ -30,7 +30,7 @@ import {THEME_TOKEN} from '../constants';
               </div>
             </div>
             <div class="auth-widget">
-              <budgetkey-ng2-auth [theme]='theme'></budgetkey-ng2-auth>
+              <budgetkey-ng2-auth [theme]='theme' *ngIf='showAuth'></budgetkey-ng2-auth>
             </div>
           </header>
     `,
@@ -39,8 +39,11 @@ import {THEME_TOKEN} from '../constants';
 
 export class BudgetKeyHeaderComponent {
     @Input() showSearchBar: boolean = false;
+    private showAuth: boolean = false;
 
-    constructor (@Inject(THEME_TOKEN) private theme: any) { }
+    constructor (@Inject(THEME_TOKEN) private theme: any) { 
+      this.showAuth = !theme.disableAuth;
+    }
 
     doSearch(href: string) {
         window.open(href, '_self');
