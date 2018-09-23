@@ -1,4 +1,4 @@
-import {Component, Inject, Input, Output, EventEmitter, OnChanges} from '@angular/core';
+import {Component, Inject, Input, Output, EventEmitter, OnChanges, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
 import {THEME_TOKEN} from '../constants';
 
 export class FilterOption {
@@ -72,7 +72,7 @@ export type SearchBarType = {
     <input #searchBox 
           class="form-control roundCorners-border-left-side left-side-search"
           type="text"
-          [placeholder]="selectedTab.placeholder || theme.searchPlaceholder"
+          [placeholder]="forcedPlaceholder || selectedTab.placeholder || theme.searchPlaceholder"
           [autofocus]='!disableAutofocus'
           (keyup)="search(searchBox.value)"
           (keyup.backspace)="search(searchBox.value)"
@@ -342,7 +342,7 @@ input {
 }
 `]
 })
-export class BudgetKeySearchBar implements OnChanges {
+export class BudgetKeySearchBar implements OnChanges, AfterViewInit {
 
     @Input('searchTypes') tabs: SearchBarType[];
     @Input('selectedSearchType') selectedTab: SearchBarType;
@@ -358,12 +358,15 @@ export class BudgetKeySearchBar implements OnChanges {
     @Output('selected') onSelect = new EventEmitter<any>();
     @Output('search') onSearch = new EventEmitter<string>();
     @Output('navigate') onNavigate = new EventEmitter<string>();
+
+    @ViewChild('searchBox') searchBox: ElementRef;
     
     private isSearchBarHasFocus = false;
     private isSearchBarHasText = false;
     private dropdownOpen = false;
     private showSubscribe = false;
     private externalUrl: string;
+    private forcedPlaceholder: string = null;
     
     constructor (@Inject(THEME_TOKEN) private theme: any) { 
     }
@@ -393,6 +396,12 @@ export class BudgetKeySearchBar implements OnChanges {
         this.isSearchBarHasText = this.searchTerm !== '';
         this.showSubscribe = !this.theme.disableAuth && this.allowSubscribe;
         this.calcExternalUrl();
+    }
+
+    ngAfterViewInit() {
+        if (this.searchBox.nativeElement.offsetWidth < 500) {
+            this.forcedPlaceholder = 'בואו נחפש';
+        }
     }
 
     ngOnChanges() {
