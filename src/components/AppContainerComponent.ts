@@ -10,11 +10,12 @@ import {Component, ViewEncapsulation, Input} from '@angular/core';
         <div class="app">
           <ng-content></ng-content>
         </div>
-        <budgetkey-footer *ngIf="showFooter"></budgetkey-footer>
+        <budgetkey-footer *ngIf="showFooter" [helpWidget]='helpWidget'></budgetkey-footer>
     `
 })
 export class AppContainerComponent {
     @Input() showHeader: boolean = true;
     @Input() showFooter: boolean = true;
     @Input() showSearchBar: boolean = false;
+    @Input() helpWidget: boolean = true;
 }

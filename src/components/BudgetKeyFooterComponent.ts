@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, Input} from '@angular/core';
 import {THEME_TOKEN} from '../constants';
 const Smooch: any = require('smooch');
 
@@ -42,6 +42,9 @@ const Smooch: any = require('smooch');
 })
 export class BudgetKeyFooterComponent {
     public hasadnaUrl = 'http://www.hasadna.org.il/';
+
+    @Input() helpWidget: boolean = true;
+
     constructor (@Inject(THEME_TOKEN) private theme: any) { }
 
     about(hash: string) {
@@ -56,20 +59,22 @@ export class BudgetKeyFooterComponent {
     }
 
     ngOnInit() {
-        Smooch.init({
-            appId: '579deb5e8975e33e008f7067',
-            displayStyle: "button",
-            customText: {
-              headerText: '?אפשר לעזור',
-              inputPlaceholder: 'כתבו לנו הודעה...',
-              sendButtonText: 'לשלוח',
-              introductionText: 'אתם מוזמנים לשאול אותנו הכל ומישהו' +
-                ' מצוות המתנדבים שלנו ישתדל לענות כמה שיותר מהר. ' +
-                'מכיוון שאנו לא תמיד זמינים, אתם מוזמנים להשאיר לנו ' +
-                'גם כתובת מייל בכדי שנוכל לחזור אליכם כשנראה את ההודעה.',
-            },
-        }).then(() => {
-            console.log('Smooch init');              
-        });
+        if (this.helpWidget) {
+            Smooch.init({
+                appId: '579deb5e8975e33e008f7067',
+                displayStyle: "button",
+                customText: {
+                  headerText: '?אפשר לעזור',
+                  inputPlaceholder: 'כתבו לנו הודעה...',
+                  sendButtonText: 'לשלוח',
+                  introductionText: 'אתם מוזמנים לשאול אותנו הכל ומישהו' +
+                    ' מצוות המתנדבים שלנו ישתדל לענות כמה שיותר מהר. ' +
+                    'מכיוון שאנו לא תמיד זמינים, אתם מוזמנים להשאיר לנו ' +
+                    'גם כתובת מייל בכדי שנוכל לחזור אליכם כשנראה את ההודעה.',
+                },
+            }).then(() => {
+                console.log('Smooch init');              
+            });    
+        }
     }
 }
