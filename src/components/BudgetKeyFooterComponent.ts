@@ -30,7 +30,7 @@ const Smooch: any = require('smooch');
                 </p>
                 <p>
                     <span>
-                        <span>מפתח התקציב כמו כלל פרויקטי</span>
+                        <span>{{theme.siteName}} כמו כלל פרויקטי</span>
                         <a href="https://hasadna.org.il">הסדנא לידע ציבורי</a>
                         <span>מפותח ע״י מתנדבים</span>
                         <a [href]='about("supporters")'>ונתמך ע״י מגוון גופים וקרנות</a><span>.</span>
