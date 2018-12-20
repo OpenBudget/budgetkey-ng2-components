@@ -1,0 +1,23 @@
+{
+  "name": "budgetkey-ng2-components",
+  "version": "0.3.0",
+  "description": "Common Components for BudgetKey",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenBudget/budgetkey-ng2-components.git"
+  },
+  "keywords": [
+    "Angular 2",
+    "OpenBudget"
+  ],
+  "author": "adam.kariv@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OpenBudget/budgetkey-ng2-components/issues"
+  },
+  "homepage": "https://github.com/OpenBudget/budgetkey-ng2-components#readme",
+  "peerDependencies": {
+    "@angular/common": "^7.1.0",
+    "@angular/core": "^7.1.0"
+  }
+}

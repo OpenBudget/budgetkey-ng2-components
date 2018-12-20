@@ -1,0 +1,72 @@
+<budgetkey-container [showSearchBar]="true">
+  <h1>{{ greeting }}</h1>
+
+  <div style="background-color:#888; padding:30px;">
+    <budgetkey-search-bar [searchTypes]="types" 
+                          [searchTerm]="searchTerm"
+                          [isSearching]="isSearching"
+                          [allowSubscribe]='true'
+                          [externalUrlParams]='"a=b"'
+                          [externalTitle]='"מחפשים את " + searchTerm'
+                          (search)="searchTermChanged($event)" 
+                          (selected)="typeSelected($event)"
+                          (navigate)="href = $event"
+    ></budgetkey-search-bar>
+  </div>
+  <pre>{{searchTerm}}</pre>
+  <a [href]="href">{{href}}</a>
+  <button (click)='modal = true;'>הצג את המודל</button>
+  <modal title='המודל של אורטל' (close)='modal = false;' *ngIf='modal'>
+    <h1>זהו זהו המודל</h1>
+    <h1>המודל - של אורטל</h1>
+  </modal>
+  <div>
+    זאת הדגמה פשוטה של
+    <span [bkTooltip]="'הודעה שמסבירה מהו הדבר עליו עומדים'">
+      טולטיפ
+    </span>
+    פשוט של מפתח התקציב.
+  </div>
+  <div>
+    יש כאן עוד טקסט סתם כי בא לי.
+    <budgetkey-sub-star [active]="starActive" [enabled]="starEnabled" (clicked)="starClicked()"></budgetkey-sub-star>
+  </div>
+  <div>
+    יש כאן עוד 
+    <span [bkTooltip]="longTooltipContent">
+    טקסט
+    </span>
+    סתם כי בא לי.
+    {{ searchTerm }}
+  </div>
+  <div>
+    יש כאן עוד טקסט סתם כי בא לי. {{profile['name']}}
+  </div>
+  <div style='text-align: left;'>
+    זהו טולטיפ ידני עם טקסט די 
+    <span class='bk-tooltip-anchor'>ארוך
+    <span class='bk-tooltip bk-align-left'>
+    יש לי שיר שמעצבן אנשים.
+    יש לי שיר שמעצבן אנשים.
+    יש לי שיר שמעצבן אנשים.
+    יש לי שיר שמעצבן אנשים.
+    יש לי שיר שמעצבן אנשים.
+    יש לי שיר שמעצבן אנשים.
+    יש לי שיר שמעצבן אנשים.
+    יש לי שיר שמעצבן אנשים.
+    יש לי שיר שמעצבן אנשים.
+    יש לי שיר שמעצבן אנשים.
+    יש לי שיר שמעצבן אנשים.
+    יש לי שיר שמעצבן אנשים.
+    יש לי שיר שמעצבן אנשים.
+    </span>
+    </span>
+  </div>
+  <div>
+    <ng-container *ngIf='items'>
+      <div *ngFor='let item of items'>
+        {{item.title}} || {{item.url}}
+      </div>
+    </ng-container>
+  </div>
+</budgetkey-container>
