@@ -23,13 +23,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              { "glob": "**/*", "input": "projects/budgetkey-ng2-components/src/assets", "output": "assets" },
+              { "glob": "**/*", "input": "dist/budgetkey-ng2-components/assets", "output": "assets" },
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
               "src/styles.less",
-              "projects/budgetkey-ng2-components/src/styles/budgetkey-ng2-components.less"
+              "dist/budgetkey-ng2-components/budgetkey-ng2-components.less"
             ],
             "scripts": []
           },
