@@ -9,6 +9,8 @@ export { BudgetKeyFooterComponent } from './lib/components/BudgetKeyFooterCompon
 export { BudgetKeyHeaderComponent } from './lib/components/BudgetKeyHeaderComponent';
 export { BudgetKeySearchBar } from './lib/components/BudgetKeySearchBar';
 export { SearchBarType } from './lib/components/BudgetKeySearchBar';
+export { FilterMenu } from './lib/components/BudgetKeySearchBar';
+export { FilterOption } from './lib/components/BudgetKeySearchBar';
 export { BudgetKeyTooltipDirective } from './lib/components/BudgetKeyTooltipDirective';
 export { BudgetKeySubscribeStar } from './lib/components/BudgetKeySubscribeStar';
 export { BudgetKeySubscriptionManager } from './lib/components/BudgetKeySubscriptionManager';
