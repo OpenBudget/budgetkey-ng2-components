@@ -8,6 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "fetch-theme": "echo 'export const DEFAULT_THEME='`curl https://raw.githubusercontent.com/OpenBudget/budgetkey-themes/master/theme.budgetkey.he.json | json_pp`';' > projects/budgetkey-ng2-components/src/lib/theme.budgetkey.he.ts",
     "copy-license": "cp LICENSE dist/budgetkey-ng2-components",
     "copy-readme": "cp README.md dist/budgetkey-ng2-components",
     "copy-styles": "cp -r projects/budgetkey-ng2-components/src/styles/* dist/budgetkey-ng2-components",
@@ -15,7 +16,7 @@
     "copy-files": "npm run copy-license && npm run copy-readme && npm run copy-assets && npm run copy-styles",
     "build_lib": "ng build budgetkey-ng2-components",
     "npm_pack": "cd dist/budgetkey-ng2-components && npm pack",
-    "package": "npm run build_lib && npm run copy-files && npm run npm_pack",
+    "package": "npm run fetch-theme && npm run build_lib && npm run copy-files && npm run npm_pack",
     "publish": "npm run package && npm publish ./dist/budgetkey-ng2-components/budgetkey-ng2-components*.tgz"
   },
   "private": true,

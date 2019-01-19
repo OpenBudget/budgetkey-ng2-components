@@ -12,6 +12,7 @@ import { BudgetKeySubscriptionManager } from './components/BudgetKeySubscription
 import { ModalComponent} from './components/ModalComponent';
 
 import { THEME_TOKEN } from './constants';
+import { DEFAULT_THEME } from './theme.budgetkey.he';
 
 import { BudgetkeyNg2AuthModule } from 'budgetkey-ng2-auth';
 import { ListsService } from './services/lists.service';
@@ -39,6 +40,10 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     ListsService,
+    {
+      provide: THEME_TOKEN,
+      useValue: DEFAULT_THEME
+    }
   ],
   exports: [
     AppContainerComponent,
