@@ -25,7 +25,7 @@ import {THEME_TOKEN} from '../constants';
               <i class="glyphicon glyphicon-menu-hamburger"></i>
               <div class='menu'>
                 <ng-container *ngFor="let link of theme.headerLinks">
-                  <span class='menu-line' (click)="navigate(link.href)" [innerHtml]='link.title'></span>
+                  <span class='menu-line' (click)="doNavigate(link.href)" [innerHtml]='link.title'></span>
                 </ng-container>
               </div>
             </div>
@@ -49,7 +49,7 @@ export class BudgetKeyHeaderComponent {
         window.open(href, '_self');
     }
 
-    navigate(href: string) {
+    doNavigate(href: string) {
         window.open(href, '_blank');
     }
 }

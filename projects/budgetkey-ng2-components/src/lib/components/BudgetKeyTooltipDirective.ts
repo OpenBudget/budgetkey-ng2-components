@@ -1,9 +1,9 @@
-import { Directive, Input, ElementRef, HostListener } from '@angular/core';
+import { Directive, Input, ElementRef, HostListener, OnInit } from '@angular/core';
 
 @Directive({
     selector: '[bkTooltip]'
 })
-export class BudgetKeyTooltipDirective {
+export class BudgetKeyTooltipDirective implements OnInit {
 
     @Input('bkTooltip') content: string;
 

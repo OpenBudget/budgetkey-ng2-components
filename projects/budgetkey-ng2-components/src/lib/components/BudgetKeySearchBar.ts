@@ -1,4 +1,4 @@
-import {Component, Inject, Input, Output, EventEmitter, OnChanges, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
+import {Component, Inject, Input, Output, EventEmitter, OnChanges, AfterViewInit, ViewChild, ElementRef, OnInit} from '@angular/core';
 import {THEME_TOKEN} from '../constants';
 
 export class FilterOption {
@@ -14,17 +14,17 @@ export class FilterMenu {
     selected?: FilterOption = null;
 }
 
-export type SearchBarType = {
-    id: string,
-    name: string, 
-    types: string[],
-    amount: number,
-    main?: boolean,
-    placeholder?: string,
-    defaultTerm?: string,
-    filters?: any,
-    filterMenu?: FilterMenu[]
-};
+export interface SearchBarType {
+    id: string;
+    name: string;
+    types: string[];
+    amount: number;
+    main?: boolean;
+    placeholder?: string;
+    defaultTerm?: string;
+    filters?: any;
+    filterMenu?: FilterMenu[];
+}
 
 
 @Component({
@@ -34,31 +34,31 @@ export type SearchBarType = {
     <div class="input-group-addon outer-right-side roundCorners-border-right-side"
          (click)="dropdownOpen = !dropdownOpen">
          <div class="inner-right-side roundCorners-border-right-side"
-         [ngClass]="{'has-text-all-tab': isSearchBarHasText && selectedTab.main,
-                     'has-text-not-all-tab': isSearchBarHasText && !selectedTab.main,
+         [ngClass]="{'has-text-all-tab': isSearchBarHasText && selectedSearchType.main,
+                     'has-text-not-all-tab': isSearchBarHasText && !selectedSearchType.main,
                      'inner-without-text-with-focus': !isSearchBarHasText && isSearchBarHasFocus,
                      'inner-without-text-without-focus': !isSearchBarHasText && !isSearchBarHasFocus}">
             <div class="right-side-symbols">
-                <img [src]="(!selectedTab.main && isSearchBarHasText) ? 'assets/img/search-glass-white.svg' : 'assets/img/search-glass-red.svg'"
+                <img [src]="glassIcon()"
                     *ngIf="!isSearching"
                     class="search-icon search-icon-margin"/>
                 <i *ngIf="isSearching" class="fa fa-circle-o-notch fa-spin search-icon-margin"></i>
-                <span *ngIf="isSearchBarHasText || !selectedTab.main"
+                <span *ngIf="isSearchBarHasText || !selectedSearchType.main"
                     class="type-text-in-search-bar-right">
-                    {{selectedTab.name}}
-                    <span *ngIf="isNumeric(selectedTab.amount)">
-                        ({{selectedTab.amount.toLocaleString()}})
+                    {{selectedSearchType.name}}
+                    <span *ngIf="isNumeric(selectedSearchType.amount)">
+                        ({{selectedSearchType.amount.toLocaleString()}})
                     </span>
                 </span>
                 <span id="drop-down-caret" class="drop-down-caret">
-                    <i [ngClass]="{'down-arrow-red':  !isSearchBarHasText || selectedTab.main,
-                                    'down-arrow-white': isSearchBarHasText && !selectedTab.main}"> </i>
+                    <i [ngClass]="{'down-arrow-red':  !isSearchBarHasText || selectedSearchType.main,
+                                    'down-arrow-white': isSearchBarHasText && !selectedSearchType.main}"> </i>
                 </span>
             </div>
 
             <div class="dropdown-content"
                 [ngClass]="{show: dropdownOpen}">
-                <a *ngFor="let tab of tabs" href="#"
+                <a *ngFor="let tab of searchTypes" href="#"
                 (click)="dropdownOpen = false; switchTab($event, tab);">
                 {{tab.name}}
                     <span *ngIf="isNumeric(tab.amount)">
@@ -72,11 +72,11 @@ export type SearchBarType = {
     <input #searchBox
           class="form-control roundCorners-border-left-side left-side-search"
           type="text"
-          [placeholder]="forcedPlaceholder || selectedTab.placeholder || theme.searchPlaceholder"
+          [placeholder]="forcedPlaceholder || selectedSearchType.placeholder || theme.searchPlaceholder"
           [autofocus]='!disableAutofocus'
-          (keyup)="search(searchBox.value)"
-          (keyup.backspace)="search(searchBox.value)"
-          (keyup.enter)="navigate(searchBox.value)"
+          (keyup)="doSearch(searchBox.value)"
+          (keyup.backspace)="doSearch(searchBox.value)"
+          (keyup.enter)="doNavigate(searchBox.value)"
           [value]="searchTerm"
           (focus)="isSearchBarHasFocus = true"
           (focusout)="isSearchBarHasFocus = false"
@@ -127,7 +127,7 @@ a.activeclass {
   display: inline-block;
   padding: 3px;
   transform: rotate(45deg);
-  -webkit-transform: rotate(45deg); 
+  -webkit-transform: rotate(45deg);
   margin-bottom: 3px;
 }
 
@@ -137,7 +137,7 @@ a.activeclass {
   display: inline-block;
   padding: 3px;
   transform: rotate(45deg);
-  -webkit-transform: rotate(45deg); 
+  -webkit-transform: rotate(45deg);
 }
 
 .type-text-in-search-bar-right{
@@ -157,7 +157,7 @@ a.activeclass {
 }
 
 .drop-down-caret{
-  margin-right: 6px; 
+  margin-right: 6px;
   margin-left: 11px;
   cursor: pointer;
 }
@@ -272,10 +272,10 @@ a.activeclass {
     background-color: #ffffff;
     border: none !important;
 
-    color: #7D7D7D !important;	
-    font-family: "Abraham TRIAL" !important;	
-    font-size: 16px !important;	
-    line-height: 25px !important;	
+    color: #7D7D7D !important;
+    font-family: "Abraham TRIAL" !important;
+    font-size: 16px !important;
+    line-height: 25px !important;
     text-align: right !important;
 }
 
@@ -304,30 +304,30 @@ a.activeclass {
 }
 
 .searchbox{
-    border-radius: 25px; 
+    border-radius: 25px;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
 }
 
 input::placeholder {
-    color: #B9BCC3;	
-    font-family: "Abraham TRIAL";	
-    font-size: 16px;	
-    line-height: 25px;	
+    color: #B9BCC3;
+    font-family: "Abraham TRIAL";
+    font-size: 16px;
+    line-height: 25px;
     text-align: right;
 }
 
 input:focus::placeholder {
-    color: #B9BCC3;	
-    font-family: "Abraham TRIAL";	
-    font-size: 16px;	
-    line-height: 25px;	
+    color: #B9BCC3;
+    font-family: "Abraham TRIAL";
+    font-size: 16px;
+    line-height: 25px;
     text-align: right;
     opacity: 0.25;
 }
 
 input {
-    height: 25px;	
-    width: 51px;	
+    height: 25px;
+    width: 51px;
 }
 
 .right-side-symbols i {
@@ -342,22 +342,22 @@ input {
 }
 `]
 })
-export class BudgetKeySearchBar implements OnChanges, AfterViewInit {
+export class BudgetKeySearchBar implements OnChanges, AfterViewInit, OnInit {
 
-    @Input('searchTypes') tabs: SearchBarType[];
-    @Input('selectedSearchType') selectedTab: SearchBarType;
-    @Input('searchTerm') searchTerm: string;
-    @Input('isSearching') isSearching: boolean;
-    @Input('disableAutofocus') disableAutofocus: boolean;
-    @Input('allowSubscribe') allowSubscribe: boolean = false;
-    
-    @Input('externalTitle') externalTitle: string;
-    @Input('externalUrlParams') externalUrlParams: string;
-    @Input('externalProperties') externalProperties: any;
+    @Input() searchTypes: SearchBarType[];
+    @Input() selectedSearchType: SearchBarType;
+    @Input() searchTerm: string;
+    @Input() isSearching: boolean;
+    @Input() disableAutofocus: boolean;
+    @Input() allowSubscribe = false;
 
-    @Output('selected') onSelect = new EventEmitter<any>();
-    @Output('search') onSearch = new EventEmitter<string>();
-    @Output('navigate') onNavigate = new EventEmitter<string>();
+    @Input() externalTitle: string;
+    @Input() externalUrlParams: string;
+    @Input() externalProperties: any;
+
+    @Output() selected = new EventEmitter<any>();
+    @Output() search = new EventEmitter<string>();
+    @Output() navigate = new EventEmitter<string>();
 
     @ViewChild('searchBox') searchBox: ElementRef;
 
@@ -368,7 +368,7 @@ export class BudgetKeySearchBar implements OnChanges, AfterViewInit {
     public externalUrl: string;
     public forcedPlaceholder: string = null;
 
-    constructor (@Inject(THEME_TOKEN) public theme: any) { 
+    constructor (@Inject(THEME_TOKEN) public theme: any) {
     }
 
     public isNumeric(n: number) {
@@ -376,10 +376,10 @@ export class BudgetKeySearchBar implements OnChanges, AfterViewInit {
     }
 
     private calcExternalUrl() {
-        let url = 
+        let url =
             'https://next.obudget.org/s/?q=' +
-            encodeURIComponent(this.searchTerm) + 
-            '&dd=' + this.selectedTab.id;
+            encodeURIComponent(this.searchTerm) +
+            '&dd=' + this.selectedSearchType.id;
         if (this.externalUrlParams) {
             url += '&' + this.externalUrlParams;
         }
@@ -390,9 +390,9 @@ export class BudgetKeySearchBar implements OnChanges, AfterViewInit {
     }
 
     ngOnInit() {
-        this.tabs = this.tabs || this.theme.searchBarConfig;
+        this.searchTypes = this.searchTypes || this.theme.searchBarConfig;
         this.searchTerm = this.searchTerm || '';
-        this.selectedTab = this.selectedTab || this.tabs[0];
+        this.selectedSearchType = this.selectedSearchType || this.searchTypes[0];
         this.isSearchBarHasText = this.searchTerm !== '';
         this.showSubscribe = !this.theme.disableAuth && this.allowSubscribe;
         this.calcExternalUrl();
@@ -407,38 +407,44 @@ export class BudgetKeySearchBar implements OnChanges, AfterViewInit {
     }
 
     ngOnChanges() {
-        if (this.selectedTab) {
+        if (this.selectedSearchType) {
             this.calcExternalUrl();
         }
     }
 
-    search(term: string) {
+    doSearch(term: string) {
         this.isSearchBarHasText = term !== '';
 
         this.searchTerm = term;
         this.calcExternalUrl();
 
-        this.onSearch.emit(term);
+        this.search.emit(term);
     }
 
     openCloseSearchTypeDropDown() {
         this.dropdownOpen = !this.dropdownOpen;
     }
- 
-    switchTab($event: any, selectedTab: any) {
+
+    switchTab($event: any, selectedSearchType: any) {
         $event.stopPropagation();
         $event.preventDefault();
 
-        this.selectedTab = selectedTab;
+        this.selectedSearchType = selectedSearchType;
         this.calcExternalUrl();
 
-        this.onSelect.emit(selectedTab);
+        this.selected.emit(selectedSearchType);
     }
 
-    navigate(term: string) {
+    doNavigate(term: string) {
         this.searchTerm = term;
         this.calcExternalUrl();
 
-        this.onNavigate.emit(this.externalUrl);
+        this.navigate.emit(this.externalUrl);
+    }
+
+    glassIcon() {
+        return (!this.selectedSearchType.main && this.isSearchBarHasText)
+                    ? 'assets/img/search-glass-white.svg' :
+                      'assets/img/search-glass-red.svg';
     }
 }

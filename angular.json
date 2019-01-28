@@ -165,7 +165,8 @@
               "projects/budgetkey-ng2-components/tsconfig.spec.json"
             ],
             "exclude": [
-              "**/node_modules/**"
+              "**/node_modules/**",
+              "**/theme.budgetkey.he.ts"
             ]
           }
         }

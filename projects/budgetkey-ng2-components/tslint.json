@@ -4,14 +4,12 @@
     "directive-selector": [
       true,
       "attribute",
-      "budgetkey",
-      "camelCase"
+      ""
     ],
     "component-selector": [
       true,
       "element",
-      "budgetkey",
-      "kebab-case"
+      ""
     ]
   }
 }

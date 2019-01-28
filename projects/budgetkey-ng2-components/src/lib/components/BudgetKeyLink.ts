@@ -9,8 +9,8 @@ declare let window: any;
     template: LINK_TEMPLATE
 })
 export class BudgetKeyLink {
-    href: string = '#';
-    target: string = '';
+    href = '#';
+    target = '';
     handleClick: () => PromiseLike<any>;
 
     constructor () { }
@@ -29,7 +29,7 @@ export class BudgetKeyLink {
         if (this.handleClick) {
             this.handleClick()
                 .then((value: any) => {
-                    window.open(this.href, this.target);                                        
+                    window.open(this.href, this.target);
                 });
             $event.preventDefault();
         }

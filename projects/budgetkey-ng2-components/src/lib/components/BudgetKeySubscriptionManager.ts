@@ -1,4 +1,4 @@
-import {Component, Inject, Input, Output, EventEmitter, OnChanges} from '@angular/core';
+import {Component, Inject, Input, Output, EventEmitter, OnChanges, OnInit} from '@angular/core';
 import { AuthService } from 'budgetkey-ng2-auth';
 import { ListsService, ListItem, ListContents } from '../services/lists.service';
 import { SEARCHES_LIST } from '../constants';
@@ -7,12 +7,12 @@ import { SEARCHES_LIST } from '../constants';
     selector: 'budgetkey-subscription-manager',
     template: `
     <budgetkey-sub-star *ngIf='term'
-                        [enabled]='isLoggedIn' 
+                        [enabled]='isLoggedIn'
                         [active]='isSubscribed()'
                         (clicked)='starClicked()'
     ></budgetkey-sub-star>
-    <modal [title]='' 
-           *ngIf='loginModal' 
+    <modal [title]=''
+           *ngIf='loginModal'
            (close)='loginModal=false'
     >
         <div class='subscription-modal-contents'>
@@ -22,7 +22,7 @@ import { SEARCHES_LIST } from '../constants';
             <span class='connect'>התחברו עם גוגל</span>
             <p>
             פעם בשבוע נשלח לכם דואר אלקטרוני ובו עדכונים בכל הנוגע ל<strong>{{term}}</strong>
-            תוכלו להוסיף ערכים נוספים למייל העדכונים השבועי בלחיצה על כפתור הכוכב   
+            תוכלו להוסיף ערכים נוספים למייל העדכונים השבועי בלחיצה על כפתור הכוכב
             </p>
         </div>
     </modal>
@@ -47,7 +47,7 @@ import { SEARCHES_LIST } from '../constants';
     .connect {
         display: block;
         pointer-events: none;
-        color: #FFFFFF;	
+        color: #FFFFFF;
         font-family: "Miriam Libre";
         font-size: 14px;
         font-weight: bold;
@@ -58,7 +58,7 @@ import { SEARCHES_LIST } from '../constants';
     }
 `]
 })
-export class BudgetKeySubscriptionManager {
+export class BudgetKeySubscriptionManager implements OnInit {
     @Input() externalUrl: string;
     @Input() externalTitle: string;
     @Input() externalProperties: any;
@@ -81,7 +81,7 @@ export class BudgetKeySubscriptionManager {
             if (this.isSubscribed()) {
                 this.lists.delete(SEARCHES_LIST, this.subscribedUrls[this.externalUrl])
                             .subscribe((success) => {
-                                delete this.subscribedUrls[this.externalUrl]; 
+                                delete this.subscribedUrls[this.externalUrl];
                             });
             } else {
                 const item = new ListItem();
@@ -105,7 +105,7 @@ export class BudgetKeySubscriptionManager {
                 if (this.isLoggedIn) {
                     this.lists.get(SEARCHES_LIST)
                     .subscribe((lc: ListContents) => {
-                        for (let item of lc.items) {
+                        for (const item of lc.items) {
                             this.subscribedUrls[item.url] = item.id;
                         }
                     });

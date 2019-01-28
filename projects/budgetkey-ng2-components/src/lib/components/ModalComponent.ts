@@ -6,7 +6,7 @@ import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angu
     encapsulation: ViewEncapsulation.None,
     template: `
       <div class="bkmodal-bg">
-        <div class="bkmodal-dialog">                
+        <div class="bkmodal-dialog">
           <div class="bkmodal-content">
               <button type="button" class="close" (click)="_close()">&times;</button>
               <div class="bkmodal-header" *ngIf='title'>
@@ -18,7 +18,7 @@ import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angu
             </div>
         </div>
       </div>
-`, 
+`,
     styles: [`
     .bkmodal-bg {
       position: fixed;
@@ -42,11 +42,11 @@ import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angu
       border: none;
       box-shadow: 0 2px 10px 0 rgba(0,0,0,0.5);
       border-radius: 10px;
-    
+
     }
-     
+
     .bkmodal-content {
-        position: relative;    
+        position: relative;
         padding: 100px;
     }
 
@@ -57,18 +57,18 @@ import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angu
       font-size: 44px;
       font-weight: 100;
     }
-    
+
     .bkmodal-header {
-      color: #2389FF;	
+      color: #2389FF;
       font-family: "Miriam Libre";
       font-size: 22px;
       font-weight: bold;
       margin-bottom: 30px;
     }
-      
+
     .bkmodal-body {
-      color: #000000;	
-      font-family: "Abraham TRIAL";	
+      color: #000000;
+      font-family: "Abraham TRIAL";
       font-size: 16px;
       line-height: 21px;
       font-weight: 300;
@@ -78,7 +78,7 @@ import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angu
 })
 export class ModalComponent {
   @Input() title: string;
-  @Output('close') close = new EventEmitter();
+  @Output() close = new EventEmitter();
 
   constructor() {
   }
