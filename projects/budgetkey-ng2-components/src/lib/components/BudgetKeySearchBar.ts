@@ -1,4 +1,14 @@
-import {Component, Inject, Input, Output, EventEmitter, OnChanges, AfterViewInit, ViewChild, ElementRef, OnInit} from '@angular/core';
+import {Component,
+    Inject,
+    Input,
+    Output,
+    EventEmitter,
+    OnChanges,
+    AfterViewInit,
+    ViewChild,
+    ElementRef,
+    OnInit,
+    HostListener} from '@angular/core';
 import {THEME_TOKEN} from '../constants';
 
 export class FilterOption {
@@ -31,7 +41,7 @@ export interface SearchBarType {
     selector: 'budgetkey-search-bar',
     template: `
 <div class="search-box input-group input-group-lg">
-    <div class="input-group-addon outer-right-side roundCorners-border-right-side"
+    <div #btnSearchMenu class="input-group-addon outer-right-side roundCorners-border-right-side"
          (click)="dropdownOpen = !dropdownOpen">
          <div class="inner-right-side roundCorners-border-right-side"
          [ngClass]="{'has-text-all-tab': isSearchBarHasText && selectedSearchType.main,
@@ -360,6 +370,7 @@ export class BudgetKeySearchBar implements OnChanges, AfterViewInit, OnInit {
     @Output() navigate = new EventEmitter<string>();
 
     @ViewChild('searchBox') searchBox: ElementRef;
+    @ViewChild('btnSearchMenu') btnSearchMenu: ElementRef;
 
     public isSearchBarHasFocus = false;
     public isSearchBarHasText = false;
@@ -369,6 +380,15 @@ export class BudgetKeySearchBar implements OnChanges, AfterViewInit, OnInit {
     public forcedPlaceholder: string = null;
 
     constructor (@Inject(THEME_TOKEN) public theme: any) {
+    }
+
+    @HostListener('document:click', ['$event'])
+    onClickOutOfDropdown(event: any) {
+        const isClickedOnDropdown = this.btnSearchMenu.nativeElement.contains(event.target);
+
+        if (this.dropdownOpen && !isClickedOnDropdown) {
+            this.dropdownOpen = false;
+        }
     }
 
     public isNumeric(n: number) {
