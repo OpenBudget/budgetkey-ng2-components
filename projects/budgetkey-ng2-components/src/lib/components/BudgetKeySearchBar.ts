@@ -34,6 +34,7 @@ export interface SearchBarType {
     defaultTerm?: string;
     filters?: any;
     filterMenu?: FilterMenu[];
+    ordering?: any;
 }
 
 
