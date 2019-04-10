@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "watch": "ng build budgetkey-ng2-components --watch",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

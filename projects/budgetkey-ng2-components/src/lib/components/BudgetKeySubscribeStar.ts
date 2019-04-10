@@ -4,42 +4,49 @@ import {Component, Input, Output, EventEmitter, OnChanges, OnInit} from '@angula
 @Component({
     selector: 'budgetkey-sub-star',
     template: `
-    <img *ngIf='enabled && active' src='assets/img/star-active.svg'
-         (click)='click($event)'
-    />
-    <img *ngIf='!active || !enabled' src='assets/img/star-inactive.svg'
-         [style.opacity]="opacity"
-         (click)='click($event)'
-    />
+    <ng-container *ngIf='enabled && active'>
+        <img src='assets/img/star-active.svg'
+            (click)='click($event)'
+        />
+    </ng-container>
+    <ng-container *ngIf='!active || !enabled'>
+        <span [class.faded]='!enabled'
+              (click)='click($event)'
+        >הרשמו לעדכונים</span>
+        <img src='assets/img/star-inactive.svg'
+            [class.faded]='!enabled'
+            (click)='click($event)'
+        />
+    </ng-container>
+    `,
+    styles: [
+    `:host {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+    }
+    span {
+        color: #FF5A5F;
+        margin-left: 10px;
+    }
+    span.faded, img.faded {
+        opacity: 0.7;
+    }
+    :host:hover span, :host:hover img {
+        opacity: 1;
+        cursor: pointer;
+    }
     `
+    ]
 })
-export class BudgetKeySubscribeStar implements OnChanges, OnInit {
+export class BudgetKeySubscribeStar implements OnInit {
     @Input() enabled = true;
     @Input() active = true;
     @Output() clicked = new EventEmitter<any>();
 
-    // private stroke = '';
-    // private fill = '';
-    public opacity = 1;
-
-    // private COLOR = '#FF5A5F';
-
     constructor () {}
 
     ngOnInit() {
-        this.ngOnChanges();
-    }
-
-    ngOnChanges() {
-        // this.stroke = this.COLOR;
-        this.opacity = 0.5;
-        // this.fill = 'none';
-        if (this.enabled) {
-            this.opacity = 1;
-            // if (this.active) {
-            //     this.fill = this.COLOR;
-            // }
-        }
     }
 
     click(e: any) {
