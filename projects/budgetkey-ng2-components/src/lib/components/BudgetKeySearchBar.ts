@@ -97,6 +97,7 @@ export interface SearchBarType {
         <budgetkey-subscription-manager [externalUrl]='externalUrl'
                                         [externalTitle]='externalTitle'
                                         [externalProperties]='externalProperties'
+                                        [docType]='selectedSearchType'
                                         [term]="searchTerm"
         ></budgetkey-subscription-manager>
     </div>
