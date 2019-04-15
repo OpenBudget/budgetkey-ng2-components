@@ -74,7 +74,7 @@ export class BudgetKeySubscriptionManager implements OnInit {
                  private lists: ListsService) {}
 
     public isSubscribed() {
-        return this.subscribedUrls.hasOwnProperty(this.externalUrl);
+        return this.subscribedUrls.hasOwnProperty(this.urlKey(this.externalUrl));
     }
 
     public starClicked() {
@@ -82,7 +82,7 @@ export class BudgetKeySubscriptionManager implements OnInit {
             if (this.isSubscribed()) {
                 this.lists.delete(SEARCHES_LIST, this.subscribedUrls[this.externalUrl])
                             .subscribe((success) => {
-                                delete this.subscribedUrls[this.externalUrl];
+                                delete this.subscribedUrls[this.urlKey(this.externalUrl)];
                             });
             } else {
                 const item = new ListItem();
@@ -98,7 +98,7 @@ export class BudgetKeySubscriptionManager implements OnInit {
                 };
                 this.lists.put(SEARCHES_LIST, item)
                             .subscribe((added) => {
-                            this.subscribedUrls[item.url] = item.id;
+                                this.subscribedUrls[this.urlKey(item.url)] = item.id;
                             });
             }
         } else {
@@ -129,7 +129,7 @@ export class BudgetKeySubscriptionManager implements OnInit {
                     this.lists.get(SEARCHES_LIST)
                     .subscribe((lc: ListContents) => {
                         for (const item of lc.items) {
-                            this.subscribedUrls[item.url] = item.id;
+                            this.subscribedUrls[this.urlKey(item.url)] = item.id;
                         }
                         this.checkIfSubscribeNeeded();
                     });
@@ -159,6 +159,14 @@ export class BudgetKeySubscriptionManager implements OnInit {
             if (!this.isSubscribed()) {
                 this.starClicked();
             }
+        }
+    }
+
+    urlKey(url) {
+        const search = url.split('?')[1];
+        if (search) {
+            const p = new URLSearchParams(search);
+            return `${p.get('q')}/${p.get('dd')}`;
         }
     }
 }
