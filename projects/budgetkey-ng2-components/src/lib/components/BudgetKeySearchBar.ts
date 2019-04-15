@@ -398,17 +398,18 @@ export class BudgetKeySearchBar implements OnChanges, AfterViewInit, OnInit {
     }
 
     private calcExternalUrl() {
-        let url =
-            'https://next.obudget.org/s/?q=' +
-            encodeURIComponent(this.searchTerm) +
+        let urlParams =
+            'q=' + encodeURIComponent(this.searchTerm) +
             '&dd=' + this.selectedSearchType.id;
         if (this.externalUrlParams) {
-            url += '&' + this.externalUrlParams;
+            urlParams += '&' + this.externalUrlParams;
         }
         if (this.theme.themeId) {
-            url += '&theme=' + this.theme.themeId;
+            const params = new URLSearchParams(urlParams);
+            params.set('theme', this.theme.themeId);
+            urlParams = params.toString();
         }
-        this.externalUrl = url;
+        this.externalUrl = 'https://next.obudget.org/s/?' + urlParams;
     }
 
     ngOnInit() {
