@@ -11,7 +11,7 @@ import {THEME_TOKEN} from '../constants';
               </a>
             </div>
             <div *ngIf="showSearchBar" class="search-div">
-              <budgetkey-search-bar (navigate)="doSearch($event)" [disableAutofocus]='true'></budgetkey-search-bar>
+              <budgetkey-search-bar (navigate)="doSearch($event)" [disableAutofocus]='true' [allowSubscribe]="true"></budgetkey-search-bar>
             </div>
             <div class="menu-links">
               <ng-container *ngFor="let link of theme.headerLinks">
