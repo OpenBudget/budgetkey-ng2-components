@@ -17,6 +17,9 @@ import {THEME_TOKEN} from '../constants';
               <ng-container *ngFor="let link of theme.headerLinks">
                 <a [href]="link.href" [innerHtml]='link.title'></a>
               </ng-container>
+              <a (click)='switchLang("en")'>En</a>
+              <a (click)='switchLang("ar")'>عر</a>
+              <a (click)='switchLang("he")'>עב</a>
             </div>
             <div *ngIf="showSearchBar" class="collapsed-search" (click)='doSearch("//next.obudget.org/s/")'>
               <img class="search-icon" src="assets/img/search-glass-white.svg">
@@ -47,6 +50,20 @@ export class BudgetKeyHeaderComponent {
 
     doSearch(href: string) {
         window.open(href, '_self');
+    }
+
+    switchLang(lang) {
+      const param = 'lang='+lang;
+      let search = window.location.search;
+      search = search.replace(RegExp('lang=[a-z]{2}'), param);
+      if (search.indexOf(param) < 0) {
+        if (search[0] == '?') {
+          search += '&' + param;
+        } else {
+          search = '?' + param;
+        }
+      }
+      window.location.search = search; 
     }
 
     doNavigate(href: string) {
