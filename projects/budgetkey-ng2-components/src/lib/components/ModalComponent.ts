@@ -73,6 +73,16 @@ import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angu
       line-height: 21px;
       font-weight: 300;
     }
+
+    @media only screen and (max-width: 600px)  {
+      .bkmodal-content {
+        padding: 20px;
+      }
+
+      .bkmodal-dialog {
+        width: 100%;
+      }
+    }
     `
   ]
 })
