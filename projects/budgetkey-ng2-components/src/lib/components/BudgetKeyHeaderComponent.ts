@@ -53,17 +53,17 @@ export class BudgetKeyHeaderComponent {
     }
 
     switchLang(lang) {
-      const param = 'lang='+lang;
+      const param = 'lang=' + lang;
       let search = window.location.search;
       search = search.replace(RegExp('lang=[a-z]{2}'), param);
       if (search.indexOf(param) < 0) {
-        if (search[0] == '?') {
+        if (search[0] === '?') {
           search += '&' + param;
         } else {
           search = '?' + param;
         }
       }
-      window.location.search = search; 
+      window.location.search = search;
     }
 
     doNavigate(href: string) {
