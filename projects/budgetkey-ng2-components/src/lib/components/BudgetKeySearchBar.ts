@@ -9,7 +9,7 @@ import {Component,
     ElementRef,
     OnInit,
     HostListener} from '@angular/core';
-import {THEME_TOKEN} from '../constants';
+import {THEME_TOKEN, LANG_TOKEN} from '../constants';
 
 export class FilterOption {
     id: string;
@@ -381,7 +381,8 @@ export class BudgetKeySearchBar implements OnChanges, AfterViewInit, OnInit {
     public externalUrl: string;
     public forcedPlaceholder: string = null;
 
-    constructor (@Inject(THEME_TOKEN) public theme: any) {
+    constructor (@Inject(THEME_TOKEN) public theme: any,
+                 @Inject(LANG_TOKEN) public lang: any) {
     }
 
     @HostListener('document:click', ['$event'])
@@ -404,11 +405,14 @@ export class BudgetKeySearchBar implements OnChanges, AfterViewInit, OnInit {
         if (this.externalUrlParams) {
             urlParams += '&' + this.externalUrlParams;
         }
+        const params = new URLSearchParams(urlParams);
         if (this.theme.themeId) {
-            const params = new URLSearchParams(urlParams);
             params.set('theme', this.theme.themeId);
-            urlParams = params.toString();
         }
+        if (this.lang) {
+            params.set('lang', this.lang);
+        }
+        urlParams = params.toString();
         this.externalUrl = 'https://next.obudget.org/s/?' + urlParams;
     }
 

@@ -2,15 +2,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { getAuthServiceConfigProvider } from 'budgetkey-ng2-auth';
 
-import { BudgetKeyCommonModule, THEME_TOKEN } from 'budgetkey-ng2-components';
+import { BudgetKeyCommonModule, THEME_TOKEN, LANG_TOKEN } from 'budgetkey-ng2-components';
 
 import { AppComponent } from './app.component';
 
 const providers: any[] = [
   getAuthServiceConfigProvider('https://next.obudget.org'),
   {
+    provide: LANG_TOKEN,
+    useValue: 'he'
+  },
+  {
     provide: THEME_TOKEN,
     useValue: {
+      themeId: 'govbuy',
       siteUrl: 'https://next.obudget.org',
       siteLogo: 'budgetkey.svg',
       searchPlaceholder: 'חפשו הכל... סעיף תקציבי, ארגון, אדם או כל דבר אחר העולה על דעתכם..',

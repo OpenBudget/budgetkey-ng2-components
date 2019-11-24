@@ -1,5 +1,5 @@
 import {Component, Inject, Input} from '@angular/core';
-import {THEME_TOKEN} from '../constants';
+import {THEME_TOKEN, LANG_TOKEN} from '../constants';
 
 @Component({
     selector: 'budgetkey-header',
@@ -21,7 +21,7 @@ import {THEME_TOKEN} from '../constants';
               <a (click)='switchLang("ar")'>عر</a>
               <a (click)='switchLang("he")'>עב</a>
             </div>
-            <div *ngIf="showSearchBar" class="collapsed-search" (click)='doSearch("//next.obudget.org/s/")'>
+            <div *ngIf="showSearchBar" class="collapsed-search" (click)='doSearch()'>
               <img class="search-icon" src="assets/img/search-glass-white.svg">
             </div>
             <div class="collapsed-menu" [ngClass]="{'with-search': showSearchBar}">
@@ -44,12 +44,15 @@ export class BudgetKeyHeaderComponent {
     @Input() showSearchBar = false;
     public showAuth = false;
 
-    constructor (@Inject(THEME_TOKEN) public theme: any) {
+    constructor (@Inject(THEME_TOKEN) public theme: any,
+                 @Inject(LANG_TOKEN) public lang: any) {
       this.showAuth = !theme.disableAuth;
     }
 
-    doSearch(href: string) {
-        window.open(href, '_self');
+    doSearch(href?: string) {
+      const themeId = this.theme.themeId || 'budgetkey';
+      const _href = href || `//next.obudget.org/s/?theme=${themeId}&lang=${this.lang}`;
+      window.open(_href, '_self');
     }
 
     switchLang(lang) {
