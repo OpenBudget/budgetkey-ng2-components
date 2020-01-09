@@ -17,9 +17,11 @@ import {THEME_TOKEN, LANG_TOKEN} from '../constants';
               <ng-container *ngFor="let link of theme.headerLinks">
                 <a [href]="link.href" [innerHtml]='link.title'></a>
               </ng-container>
-              <a (click)='switchLang("en")'>En</a>
-              <a (click)='switchLang("ar")'>عر</a>
-              <a (click)='switchLang("he")'>עב</a>
+              <ng-container *ngIf='showLanguages'>
+                <a (click)='switchLang("en")'>En</a>
+                <a (click)='switchLang("ar")'>عر</a>
+                <a (click)='switchLang("he")'>עב</a>
+              </ng-container>
             </div>
             <div *ngIf="showSearchBar" class="collapsed-search" (click)='doSearch()'>
               <img class="search-icon" src="assets/img/search-glass-white.svg">
@@ -42,6 +44,7 @@ import {THEME_TOKEN, LANG_TOKEN} from '../constants';
 
 export class BudgetKeyHeaderComponent {
     @Input() showSearchBar = false;
+    @Input() showLanguages = false;
     public showAuth = false;
 
     constructor (@Inject(THEME_TOKEN) public theme: any,
