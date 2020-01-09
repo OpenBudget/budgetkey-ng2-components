@@ -6,6 +6,7 @@ import {Component, ViewEncapsulation, Input} from '@angular/core';
     template: `
         <budgetkey-header *ngIf="showHeader"
                           [showSearchBar]="showSearchBar"
+                          [showLanguages]="showLanguages"
         ></budgetkey-header>
         <div class="app">
           <ng-content></ng-content>
@@ -17,5 +18,6 @@ export class AppContainerComponent {
     @Input() showHeader = true;
     @Input() showFooter = true;
     @Input() showSearchBar = false;
+    @Input() showLanguages = false;
     @Input() helpWidget = true;
 }
