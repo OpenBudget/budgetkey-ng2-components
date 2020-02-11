@@ -18,7 +18,7 @@
 
 .bk-tooltip-anchor {
     position: relative;
-    display: inline-block;
+    display: inline;
     text-decoration-line: underline;
     text-decoration-style: dashed;
 
@@ -85,14 +85,17 @@
             margin-left: -10px;
         }
     }
-}
 
-img.bk-tooltip-anchor {
-    height: 0.75em;
-    top: -0.25em;
-
-    &:hover .bk-tooltip {
+    img {
+        display: inline-block;
+        height: 0.75em;
+        top: -0.25em;
+        position: relative;
+    }
+    
+    &.img:hover .bk-tooltip {
         top: ~"calc(100% + 0.75em)";
         left: ~"calc(50% - 0.32em)";
     }
 }
+
