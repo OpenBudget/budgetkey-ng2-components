@@ -18,9 +18,11 @@
 
 .bk-tooltip-anchor {
     position: relative;
-    display: inline;
-    text-decoration-line: underline;
-    text-decoration-style: dashed;
+    display: inline-block;
+    // text-decoration-line: underline;
+    // text-decoration-style: dashed;
+    height: 0.75em;
+    top: -0.25em;
 
     span.bk-tooltip {
         position: absolute;
@@ -72,8 +74,8 @@
     &:hover .bk-tooltip {
         visibility: visible;
         display: inherit;
-        top: ~"calc(100% + 5px)";
-        left: 50%;
+        top: ~"calc(100% + 0.75em)";
+        left: ~"calc(50% - 0.32em)";
         margin-left: -280px;
         z-index: 999;    
 

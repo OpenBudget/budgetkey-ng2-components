@@ -11,10 +11,11 @@ export class BudgetKeyTooltipDirective implements OnInit {
 
     constructor(el: ElementRef) {
         this.tooltipEl = el.nativeElement;
-        el.nativeElement.classList.add('bk-tooltip-anchor');
+        // el.nativeElement.classList.add('bk-tooltip-anchor');
     }
 
     ngOnInit() {
-        this.tooltipEl.innerHTML += `<span class='bk-tooltip'>` + this.content + `</span>`;
+        this.tooltipEl.innerHTML += `<span class='bk-tooltip-anchor'><img src='assets/img/help.svg'>` +
+            `<span class='bk-tooltip'>${this.content}</span></span>`;
     }
 }
