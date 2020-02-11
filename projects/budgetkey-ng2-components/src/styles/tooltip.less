@@ -19,10 +19,8 @@
 .bk-tooltip-anchor {
     position: relative;
     display: inline-block;
-    // text-decoration-line: underline;
-    // text-decoration-style: dashed;
-    height: 0.75em;
-    top: -0.25em;
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
 
     span.bk-tooltip {
         position: absolute;
@@ -74,8 +72,8 @@
     &:hover .bk-tooltip {
         visibility: visible;
         display: inherit;
-        top: ~"calc(100% + 0.75em)";
-        left: ~"calc(50% - 0.32em)";
+        top: ~"calc(100% + 5px)";
+        left: 50%;
         margin-left: -280px;
         z-index: 999;    
 
@@ -86,5 +84,15 @@
         &.bk-align-left {        
             margin-left: -10px;
         }
+    }
+}
+
+img.bk-tooltip-anchor {
+    height: 0.75em;
+    top: -0.25em;
+
+    &:hover .bk-tooltip {
+        top: ~"calc(100% + 0.75em)";
+        left: ~"calc(50% - 0.32em)";
     }
 }
