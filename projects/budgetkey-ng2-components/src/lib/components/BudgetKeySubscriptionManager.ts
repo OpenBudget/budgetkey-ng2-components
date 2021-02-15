@@ -13,6 +13,7 @@ export class BudgetKeySubscriptionManager implements OnInit {
     @Input() externalTitle: string;
     @Input() externalProperties: any;
     @Input() term: string;
+    @Input() context: string;
     @Input() docType: any;
 
     public isLoggedIn: boolean;
@@ -44,7 +45,8 @@ export class BudgetKeySubscriptionManager implements OnInit {
                         value: 'all'
                     },
                     kind: 'search',
-                    term: this.term
+                    term: this.term,
+                    context: this.context
                 };
                 this.lists.put(SEARCHES_LIST, item)
                             .subscribe((added) => {
