@@ -394,7 +394,7 @@ export class BudgetKeySearchBar implements OnChanges, AfterViewInit, OnInit {
         }
         const params = new URLSearchParams(urlParams);
         if (theme) {
-            params.set('theme', theme.id);
+            params.set('theme', theme.themeId);
         }
         if (lang) {
             params.set('lang', lang);
