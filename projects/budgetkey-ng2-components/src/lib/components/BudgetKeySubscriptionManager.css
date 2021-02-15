@@ -1,0 +1,28 @@
+.subscription-modal-contents {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.title {
+    font-family: "Miriam Libre";
+    font-size: 22px;
+    font-weight: bold;
+    color: #FF5A5F;
+    margin-bottom: 30px;
+}
+p {
+    text-align: center;
+    margin-top: 30px;
+}
+.connect {
+    display: block;
+    pointer-events: none;
+    color: #FFFFFF;
+    font-family: "Miriam Libre";
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+    margin-top: -33px;
+    margin-right: -33px;
+    margin-bottom: 33px;
+}

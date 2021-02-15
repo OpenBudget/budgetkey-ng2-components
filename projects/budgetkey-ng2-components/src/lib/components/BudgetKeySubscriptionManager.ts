@@ -5,58 +5,8 @@ import { SEARCHES_LIST } from '../constants';
 
 @Component({
     selector: 'budgetkey-subscription-manager',
-    template: `
-    <budgetkey-sub-star *ngIf='term'
-                        [enabled]='isLoggedIn'
-                        [active]='isSubscribed()'
-                        (clicked)='starClicked()'
-    ></budgetkey-sub-star>
-    <modal [title]=''
-           *ngIf='loginModal'
-           (close)='loginModal=false'
-    >
-        <div class='subscription-modal-contents'>
-            <img src='assets/img/star-active.svg' height='90px'>
-            <div class='title'>הרשמו לעדכונים</div>
-            <a [href]='loginUrl'><img src='assets/img/google_login.svg'></a>
-            <span class='connect'>התחברו עם גוגל</span>
-            <p>
-            פעם בשבוע נשלח לכם דואר אלקטרוני ובו עדכונים בכל הנוגע ל<strong>{{term}}</strong>
-            תוכלו להוסיף ערכים נוספים למייל העדכונים השבועי בלחיצה על כפתור הכוכב
-            </p>
-        </div>
-    </modal>
-`,
-    styles: [`
-    .subscription-modal-contents {
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-    }
-    .title {
-        font-family: "Miriam Libre";
-        font-size: 22px;
-        font-weight: bold;
-        color: #FF5A5F;
-        margin-bottom: 30px;
-    }
-    p {
-        text-align: center;
-        margin-top: 30px;
-    }
-    .connect {
-        display: block;
-        pointer-events: none;
-        color: #FFFFFF;
-        font-family: "Miriam Libre";
-        font-size: 14px;
-        font-weight: bold;
-        letter-spacing: 0.4px;
-        margin-top: -33px;
-        margin-right: -33px;
-        margin-bottom: 33px;
-    }
-`]
+    templateUrl: 'BudgetKeySubscriptionManager.html',
+    styleUrls: ['BudgetKeySubscriptionManager.css']
 })
 export class BudgetKeySubscriptionManager implements OnInit {
     @Input() externalUrl: string;
