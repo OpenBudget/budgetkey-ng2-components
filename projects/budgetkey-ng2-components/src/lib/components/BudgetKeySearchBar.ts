@@ -385,6 +385,25 @@ export class BudgetKeySearchBar implements OnChanges, AfterViewInit, OnInit {
                  @Inject(LANG_TOKEN) public lang: any) {
     }
 
+    public static buildExternalUrl(searchTerm, searchType, extraUrlParams, theme, lang) {
+        let urlParams =
+            'q=' + encodeURIComponent(searchTerm) +
+            '&dd=' + searchType.id;
+        if (extraUrlParams) {
+            urlParams += '&' + extraUrlParams;
+        }
+        const params = new URLSearchParams(urlParams);
+        if (theme) {
+            params.set('theme', theme.id);
+        }
+        if (lang) {
+            params.set('lang', lang);
+        }
+        urlParams = params.toString();
+        return 'https://next.obudget.org/s/?' + urlParams;
+    }
+
+
     @HostListener('document:click', ['$event'])
     onClickOutOfDropdown(event: any) {
         const isClickedOnDropdown = this.btnSearchMenu.nativeElement.contains(event.target);
@@ -396,24 +415,6 @@ export class BudgetKeySearchBar implements OnChanges, AfterViewInit, OnInit {
 
     public isNumeric(n: number) {
         return n !== null && n >= 0;
-    }
-
-    public static buildExternalUrl(searchTerm, searchType, extraUrlParams, themeId, lang) {
-        let urlParams =
-            'q=' + encodeURIComponent(searchTerm) +
-            '&dd=' + searchType.id;
-        if (extraUrlParams) {
-            urlParams += '&' + extraUrlParams;
-        }
-        const params = new URLSearchParams(urlParams);
-        if (themeId) {
-            params.set('theme', themeId);
-        }
-        if (lang) {
-            params.set('lang', lang);
-        }
-        urlParams = params.toString();
-        return 'https://next.obudget.org/s/?' + urlParams;
     }
 
     private calcExternalUrl() {
