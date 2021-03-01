@@ -99,6 +99,7 @@ export interface SearchBarType {
                                         [externalProperties]='externalProperties'
                                         [docType]='selectedSearchType'
                                         [term]="searchTerm"
+                                        [newWindow]="newWindow"
         ></budgetkey-subscription-manager>
     </div>
 
@@ -362,6 +363,7 @@ export class BudgetKeySearchBar implements OnChanges, AfterViewInit, OnInit {
     @Input() isSearching: boolean;
     @Input() disableAutofocus: boolean;
     @Input() allowSubscribe = false;
+    @Input() newWindow = false;
 
     @Input() externalTitle: string;
     @Input() externalUrlParams: string;
