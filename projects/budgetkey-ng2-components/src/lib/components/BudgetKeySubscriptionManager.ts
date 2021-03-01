@@ -26,8 +26,10 @@ export class BudgetKeySubscriptionManager implements OnInit {
 
     constructor (private auth: AuthService,
                  private lists: ListsService) {
-        fromEvent(window, 'message').subscribe(() => {
-            this.ngOnInit();
+        fromEvent(window, 'message').subscribe((evt) => {
+            console.log('GOT Message', evt);
+            this.auth.check(window.location.href);
+            this.loginModal = false;
         });
     }
 
