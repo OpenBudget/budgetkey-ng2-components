@@ -2,7 +2,7 @@ import {Component, Inject, Input, Output, EventEmitter, OnChanges, OnInit} from 
 import { AuthService } from 'budgetkey-ng2-auth';
 import { ListsService, ListItem, ListContents } from '../services/lists.service';
 import { SEARCHES_LIST } from '../constants';
-import { tap } from 'rxjs/operators';
+import { first, tap } from 'rxjs/operators';
 import { from, fromEvent } from 'rxjs';
 
 @Component({
@@ -92,7 +92,7 @@ export class BudgetKeySubscriptionManager implements OnInit {
     }
 
     public starClicked() {
-        this._starClicked().subscribe(() => {
+        this._starClicked().pipe(first()).subscribe(() => {
             console.log('Star Clicked');
         });
     }
