@@ -31,9 +31,9 @@ declare const Smooch: any;
                 </p>
                 <p>
                     <span>
-                        <span>{{theme.siteName}} כמו כלל פרויקטי</span>
-                        <a href="https://hasadna.org.il">הסדנא לידע ציבורי</a>
-                        <span>מפותח ע״י מתנדבים</span>
+                        <span>{{theme.siteName}} הוא פרויקט של</span>
+                        <a href="https://www.hasadna.org.il">הסדנא לידע ציבורי</a>
+                        <span>מפותח ע״י מתנדבים, בהובלת <a href='https://whiletrue.industries'>אדם קריב</a></span>
                         <a [href]='about("supporters")'>ונתמך ע״י מגוון גופים וקרנות</a><span>.</span>
                     </span>
                 </p>
