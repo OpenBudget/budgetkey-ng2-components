@@ -33,8 +33,8 @@ declare const Smooch: any;
                     <span>
                         <span>{{theme.siteName}} הוא פרויקט של</span>
                         <a href="https://www.hasadna.org.il">הסדנא לידע ציבורי</a>
-                        <span>מפותח ע״י מתנדבים, בהובלת <a href='https://whiletrue.industries'>אדם קריב</a></span>
-                        <a [href]='about("supporters")'>ונתמך ע״י מגוון גופים וקרנות</a><span>.</span>
+                        <span> בהובלת <a href='https://whiletrue.industries'>אדם קריב</a></span>
+                        <a [href]='about("supporters")'>ובתמיכה ושיתוף עם מגוון גופים וקרנות</a><span>.</span>
                     </span>
                 </p>
             </div>
