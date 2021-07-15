@@ -45,7 +45,7 @@
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^8.9.5",
-    "bootstrap": "^3.4.0",
+    "bootstrap": "^3.4.1",
     "bootstrap-rtl": "^3.3.4",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~2.99.1",
