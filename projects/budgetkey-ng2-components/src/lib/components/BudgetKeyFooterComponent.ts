@@ -12,7 +12,7 @@ declare const Smooch: any;
                     <a [href]="link.href" [innerHtml]="link.title"></a>
                 </div>
                 <div class="hasadna">
-                    <img class='hasadna-logo' src='assets/img/hasadna-logo.svg'>
+                    <img class='hasadna-logo' src='assets/img/hasadna-logo.svg' alt='hasadna logo'>
                     <a class='hasadna-link' href="{{hasadnaUrl}}">הסדנא לידע ציבורי</a>
                 </div>
             </div>
@@ -22,7 +22,7 @@ declare const Smooch: any;
                     <span>זמין תחת רשיון MIT.</span>
                 </p>
                 <p>
-                    <img src='assets/img/cc-by-sa.svg'>
+                    <img src='assets/img/cc-by-sa.svg' alt='cc-by-sa logo'>
                     <span>על רוב תוכן האתר חל רישיון</span>
                     <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 של Creative Commons</a>
                     <span>, אלא אם כן
