@@ -30,7 +30,8 @@ declare const Smooch: any;
                     .</span>
                 </p>
                 <p>
-                    <span>
+                    <span *ngIf='theme.footerText' [innerHtml]='theme.footerText'></span>
+                    <span *ngIf='!theme.footerText'>
                         <span>{{theme.siteName}} הוא פרויקט של</span>
                         <a href="https://www.hasadna.org.il">הסדנא לידע ציבורי</a>
                         <span> בהובלת <a href='https://whiletrue.industries'>אדם קריב</a></span>
