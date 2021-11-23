@@ -11,7 +11,7 @@ declare const Smooch: any;
                 <div class="link" *ngFor="let link of theme.footerLinks">
                     <a [href]="link.href" [innerHtml]="link.title"></a>
                 </div>
-                <div class="hasadna">
+                <div class="hasadna" *ngIf='!theme.hideFooterHasadnaLogo'>
                     <img class='hasadna-logo' src='assets/img/hasadna-logo.svg' alt='hasadna logo'>
                     <a class='hasadna-link' href="{{hasadnaUrl}}">הסדנא לידע ציבורי</a>
                 </div>
@@ -32,10 +32,10 @@ declare const Smooch: any;
                 <p>
                     <span *ngIf='theme.footerText' [innerHtml]='theme.footerText'></span>
                     <span *ngIf='!theme.footerText'>
-                        <span>{{theme.siteName}} הוא פרויקט של</span>
+                        {{theme.siteName}} הוא פרויקט של
                         <a href="https://www.hasadna.org.il">הסדנא לידע ציבורי</a>
-                        <span> בהובלת <a href='https://whiletrue.industries'>אדם קריב</a></span>
-                        <a [href]='about("supporters")'>ובתמיכה ושיתוף עם מגוון גופים וקרנות</a><span>.</span>
+                        בהובלת <a href='https://whiletrue.industries'>אדם קריב</a>
+                        <a [href]='about("supporters")'>ובתמיכה ושיתוף עם מגוון גופים וקרנות</a>.
                     </span>
                 </p>
             </div>
