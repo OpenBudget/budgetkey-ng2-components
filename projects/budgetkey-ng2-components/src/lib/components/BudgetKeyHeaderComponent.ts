@@ -6,8 +6,7 @@ import {THEME_TOKEN, LANG_TOKEN} from '../constants';
     template: `
           <header>
             <div class="logo">
-              <a [href]="theme.siteUrl"  aria-label='homepage'>
-                <img [src]="'assets/img/' + theme.siteLogo" alt='site-logo'/>
+              <a [href]="theme.siteUrl"  aria-label='homepage' [style.background-image]='"url(assets/img/" + theme.siteLogo + ")"'>
               </a>
             </div>
             <div *ngIf="showSearchBar" class="search-div">
