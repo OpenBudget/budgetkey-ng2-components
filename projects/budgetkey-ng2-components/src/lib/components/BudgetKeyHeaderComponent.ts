@@ -14,7 +14,7 @@ import {THEME_TOKEN, LANG_TOKEN} from '../constants';
             </div>
             <div class="menu-links">
               <ng-container *ngFor="let link of theme.headerLinks">
-                <a [href]="link.href" [innerHtml]='link.title'></a>
+                <a [href]="link.href" [innerHtml]='link.title' target='_blank'></a>
               </ng-container>
               <ng-container *ngIf='showLanguages'>
                 <a (click)='switchLang("en")'>En</a>
